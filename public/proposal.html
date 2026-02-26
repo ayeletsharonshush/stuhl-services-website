@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bathroom Remodel Proposal - Stuhl Services LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0F2557;
+    --navy-light: #1a3a7a;
+    --gold: #B8860B;
+    --gold-light: #d4a017;
+    --cream: #FAF8F5;
+    --glass: rgba(255,255,255,0.08);
+    --glass-border: rgba(255,255,255,0.15);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: #1a1a1a;
+    line-height: 1.7;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .hero {
+    background: linear-gradient(160deg, #f0f4fa 0%, #e4eaf6 40%, #dce5f5 70%, #d4dff2 100%);
+    color: var(--navy);
+    padding: 70px 24px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,11,0.06) 0%, transparent 70%);
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(15,37,87,0.04) 0%, transparent 70%);
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.05); }
+  }
+  .hero-inner {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+  .logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 8px;
+  }
+  .logo-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    letter-spacing: 3px;
+    font-weight: 400;
+  }
+  .logo-motto {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 36px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(15,37,87,0.07);
+    border: 1px solid rgba(15,37,87,0.1);
+    border-radius: 100px;
+    padding: 8px 24px 8px 10px;
+    margin-bottom: 32px;
+  }
+  .hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 8px rgba(34,197,94,0.5);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  .hero-badge span {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--navy);
+  }
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 42px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+    color: var(--navy);
+  }
+  .hero-address {
+    font-size: 18px;
+    color: #555;
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+  .hero-date {
+    font-size: 13px;
+    color: #999;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+  .hero-chips {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+  }
+  .hero-chip {
+    background: white;
+    border: 1px solid rgba(15,37,87,0.1);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .hero-chip svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+    stroke: var(--navy);
+  }
+
+  .container {
+    max-width: 820px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .section {
+    margin: 48px auto;
+    max-width: 820px;
+    padding: 0 24px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .section-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .section-icon svg {
+    width: 22px;
+    height: 22px;
+    color: white;
+    stroke: white;
+    fill: none;
+  }
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .overview-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+  }
+  .overview-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+    border-radius: 4px 0 0 4px;
+  }
+  .overview-card p {
+    color: #555;
+    font-size: 15px;
+    padding-left: 20px;
+  }
+  .overview-card .highlight {
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .floor-area {
+    margin-top: 20px;
+    margin-left: 20px;
+    background: linear-gradient(135deg, #f0f4fa 0%, #e8edf8 100%);
+    border-radius: 10px;
+    padding: 14px 22px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: var(--navy);
+    font-size: 14px;
+  }
+  .floor-area svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--navy);
+    fill: none;
+  }
+
+  .task-list { list-style: none; }
+  .task-item {
+    background: white;
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.04);
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+  }
+  .task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(15,37,87,0.08);
+    border-color: rgba(184,134,11,0.15);
+  }
+  .task-number {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .task-content h4 {
+    color: var(--navy);
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .task-content p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .total-box {
+    background: linear-gradient(135deg, #0a1a3f 0%, var(--navy) 50%, #1a3578 100%);
+    color: white;
+    border-radius: 16px;
+    padding: 28px 36px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 28px;
+    position: relative;
+    overflow: hidden;
+  }
+  .total-box::before {
+    content: '';
+    position: absolute;
+    right: -40px;
+    top: -40px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,11,0.15) 0%, transparent 70%);
+  }
+  .total-box .label {
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.8);
+    position: relative;
+    z-index: 1;
+  }
+  .total-box .amount {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--gold-light);
+    position: relative;
+    z-index: 1;
+  }
+
+  .project-options-card {
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+  }
+  .project-options-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(15,37,87,0.08);
+  }
+  .project-options-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--gold), var(--gold-light));
+  }
+  .project-options-card h4 {
+    color: var(--navy);
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding-left: 16px;
+  }
+  .project-options-card p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.65;
+    padding-left: 16px;
+  }
+  .project-options-card .price {
+    display: inline-block;
+    margin-top: 14px;
+    margin-left: 16px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+
+  .options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .option-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    border: 1px solid rgba(0,0,0,0.04);
+    transition: all 0.25s cubic-bezier(.4,0,.2,1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .option-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(15,37,87,0.08);
+    border-color: rgba(184,134,11,0.15);
+  }
+  .option-card .option-name {
+    font-weight: 700;
+    color: var(--navy);
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+  .option-card .option-desc {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.5;
+    flex-grow: 1;
+  }
+  .option-card .option-price {
+    margin-top: 12px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 20px;
+    color: var(--gold);
+  }
+
+  .notes-card {
+    background: white;
+    border-radius: 16px;
+    padding: 36px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+  .notes-card h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--navy);
+    font-size: 18px;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .notes-card h3:first-child { margin-top: 0; }
+  .notes-card h3::before {
+    content: '';
+    width: 3px;
+    height: 20px;
+    background: var(--gold);
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .notes-card p, .notes-card li {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .notes-card ul { margin: 8px 0 8px 20px; }
+  .notes-card li { margin-bottom: 4px; }
+
+  .payment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .payment-step {
+    background: linear-gradient(135deg, #f0f4fa 0%, #e8edf8 100%);
+    border-radius: 14px;
+    padding: 20px 14px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .payment-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  }
+  .payment-step .pct {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--navy);
+  }
+  .payment-step .when {
+    font-size: 11px;
+    color: #888;
+    margin-top: 6px;
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .material-costs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 12px;
+  }
+  .material-item {
+    background: linear-gradient(135deg, #faf8f5 0%, #f5f0ea 100%);
+    border-radius: 10px;
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 13px;
+  }
+  .material-item .name { color: #666; }
+  .material-item .cost { font-weight: 700; color: var(--navy); }
+
+  .cta-section {
+    background: linear-gradient(135deg, #0a1a3f 0%, var(--navy) 50%, #1a3578 100%);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    margin-top: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,11,0.12) 0%, transparent 70%);
+  }
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    left: -60px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(6,182,212,0.06) 0%, transparent 70%);
+  }
+  .cta-section > * { position: relative; z-index: 1; }
+  .cta-section h3 {
+    font-family: 'DM Serif Display', serif;
+    color: white;
+    font-size: 26px;
+    margin-bottom: 8px;
+  }
+  .cta-section .cta-sub {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .cta-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .cta-link {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .cta-link:hover {
+    background: rgba(184,134,11,0.2);
+    border-color: rgba(184,134,11,0.4);
+    transform: translateY(-2px);
+  }
+
+  .signature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    border: 1px solid rgba(0,0,0,0.04);
+    margin-top: 32px;
+    text-align: center;
+  }
+  .signature-card h3 {
+    font-family: 'DM Serif Display', serif;
+    color: var(--navy);
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+  .signature-card p {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .sig-phone {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .sig-line {
+    border-bottom: 2px dashed #ddd;
+    width: 320px;
+    max-width: 100%;
+    margin: 44px auto 8px;
+  }
+  .sig-label {
+    font-size: 11px;
+    color: #bbb;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .footer {
+    text-align: center;
+    padding: 32px 24px;
+    margin-top: 48px;
+    font-size: 12px;
+    color: #bbb;
+  }
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .footer-logo span {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    color: var(--navy);
+    letter-spacing: 2px;
+  }
+  .footer .confidential {
+    font-style: italic;
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  .hourly-note {
+    margin-top: 20px;
+    background: linear-gradient(135deg, #fffdf5 0%, #fff8e1 100%);
+    border-radius: 12px;
+    padding: 16px 22px;
+    font-size: 13px;
+    color: #8a7000;
+    border: 1px solid rgba(184,134,11,0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .hourly-note svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    fill: none;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 20px 40px; }
+    .logo-name { font-size: 24px; letter-spacing: 2px; }
+    .hero-title { font-size: 30px; }
+    .hero-chips { gap: 8px; }
+    .hero-chip { padding: 8px 14px; font-size: 11px; }
+    .section { padding: 0 16px; margin: 32px auto; }
+    .task-item { padding: 16px 18px; }
+    .total-box { flex-direction: column; gap: 8px; text-align: center; padding: 22px; }
+    .total-box .amount { font-size: 30px; }
+    .options-grid { grid-template-columns: 1fr; }
+    .payment-grid { grid-template-columns: repeat(2, 1fr); }
+    .material-costs { grid-template-columns: 1fr; }
+    .cta-section { padding: 28px 20px; }
+    .notes-card { padding: 24px; }
+    .signature-card { padding: 28px 20px; }
+    .section-title { font-size: 22px; }
+  }
+
+  @media print {
+    body { background: white; }
+    .hero { padding: 24px; }
+    .section { margin: 20px auto; }
+    .task-item:hover, .option-card:hover, .project-options-card:hover { transform: none; box-shadow: none; }
+    .cta-section, .signature-card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="logo-row">
+      <svg width="38" height="60" viewBox="0 0 250 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M110 32C50.3532 32 2 80.3532 2 140C2 199.647 50.3532 248 110 248V32Z" fill="#EF4444"/>
+        <path d="M125 32H240C240 63.7584 214.242 89.5168 182.5 89.5168C150.758 89.5168 125 63.7584 125 32Z" fill="#D97706"/>
+        <path d="M135 110V360C190.228 360 235 315.228 235 260C235 204.772 190.228 160 135 160V110Z" fill="#1E3A8A"/>
+        <path d="M2 360H110C110 329.624 85.3757 305 55 305C24.6243 305 0 329.624 0 360H2Z" fill="#06B6D4"/>
+      </svg>
+      <div class="logo-name">STUHL SERVICES LLC</div>
+    </div>
+    <div class="logo-motto">WE DELIVER WHAT WE PROMISED</div>
+
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span>ACTIVE PROPOSAL</span>
+    </div>
+
+    <div class="hero-title">Bathroom Remodel Proposal</div>
+    <div class="hero-address">404 Central Avenue, New Providence, NJ</div>
+    <div class="hero-date">February 15, 2026 &mdash; Version 1</div>
+
+    <div class="hero-chips">
+      <div class="hero-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M9 12l2 2 4-4"/><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/></svg>
+        Licensed & Insured
+      </div>
+      <div class="hero-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        59 Sunrise Dr, Gillette NJ
+      </div>
+      <div class="hero-chip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        Lic# 13VH11735700
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+    </div>
+    <div>
+      <div class="section-label">Overview</div>
+      <h2 class="section-title">Project Summary</h2>
+    </div>
+  </div>
+  <div class="overview-card">
+    <p><span class="highlight">Client Request:</span> The homeowners would like to have a complete remodel at their second floor bathroom. Major upgrades include increased shower area, additional storage cabinet, enlarging the overall floor space and a larger vanity.</p>
+    <div class="floor-area">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 3v18"/></svg>
+      Ensuite Bathroom Floor: approx. 13.3' x 7.7'
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    </div>
+    <div>
+      <div class="section-label">Scope of Work</div>
+      <h2 class="section-title">Main Project Tasks</h2>
+    </div>
+  </div>
+  <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Complete breakdown of all labor items included in this project:</p>
+  <ul class="task-list">
+    <li class="task-item">
+      <div class="task-number">1</div>
+      <div class="task-content">
+        <h4>Material Procurement & Delivery</h4>
+        <p>We will recommend and help with transportation of all selected materials, ensuring quality and timely arrival to stay on schedule.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">2</div>
+      <div class="task-content">
+        <h4>Site Preparation & Protection</h4>
+        <p>The work area and pathway will be covered with protective materials to safeguard surfaces and contain debris.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">3</div>
+      <div class="task-content">
+        <h4>Shower, Drain, Vanity and Toilet Removal</h4>
+        <p>The existing shower will be detached, with careful disconnection of the drain to protect the plumbing.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">4</div>
+      <div class="task-content">
+        <h4>Tile, Wall and Floor Removal</h4>
+        <p>Existing tiles, grout, and waterproofing will be removed carefully to reveal bare studs and subfloor while minimizing impact on surrounding areas.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">5</div>
+      <div class="task-content">
+        <h4>Debris Removal & Cleanup</h4>
+        <p>All removed materials are properly disposed of to the disposal container outside and the work site is cleaned to prepare for the next phase.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">6</div>
+      <div class="task-content">
+        <h4>Framing & Subfloor Inspection</h4>
+        <p>After removal, we will inspect the studs and subfloor for potential issues like mold or structural concerns. Additional blocking will be added.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">7</div>
+      <div class="task-content">
+        <h4>Drywall Installation</h4>
+        <p>Shower walls will be leveled and plumbed for stability. Moisture-resistant drywall will be installed throughout the bathroom.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">8</div>
+      <div class="task-content">
+        <h4>Custom Shower Pan and Drain Installation</h4>
+        <p>The prefabricated under-tiles shower pan will be installed to allow for optimal drainage.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">9</div>
+      <div class="task-content">
+        <h4>Waterproofing</h4>
+        <p>A high-quality waterproof membrane (Schluter) will be applied to all necessary surfaces, including corners, edges, floor and wall-to-floor transition to ensure no leaks followed by a 24hrs water test.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">10</div>
+      <div class="task-content">
+        <h4>Tile Layout, Cutting, and Installation</h4>
+        <p>Tiles will be measured and cut precisely, with thin-set mortar used for secure application. Shower walls and floor tiles will be installed.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">11</div>
+      <div class="task-content">
+        <h4>Grouting and Sealing</h4>
+        <p>Grout will fill the gaps between tiles, creating a watertight seal. Matching color silicone is applied at all plane-changing edges for added seal and protection.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">12</div>
+      <div class="task-content">
+        <h4>Shower Glass Panel and Trim Installation</h4>
+        <p>New glass panels will be installed with precise alignment and secure mounting, complemented by thoughtfully fitted shower trim and additional hardware.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">13</div>
+      <div class="task-content">
+        <h4>Finishing Touches</h4>
+        <p>Joint sealing, sanding, and preparation for painting as required on both walls and ceiling.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">14</div>
+      <div class="task-content">
+        <h4>Walls, Ceiling and Trim Painting</h4>
+        <p>Applying primer to ensure optimal paint adhesion. Applying 2 coats of high-quality paint to achieve even coverage and a flawless finish. Cutting in along edges, corners, and trim to ensure sharp, professional lines.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">15</div>
+      <div class="task-content">
+        <h4>Toilet and Vanity Installation</h4>
+        <p>Carefully install the toilet and vanity and connect required plumbing. Seal with waterproof silicon where required.</p>
+      </div>
+    </li>
+    <li class="task-item">
+      <div class="task-number">16</div>
+      <div class="task-content">
+        <h4>Final Cleanup & Inspection</h4>
+        <p>The workspace will be professionally cleaned, and a final quality check will ensure customer satisfaction.</p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="total-box">
+    <div class="label">Total Labor Cost</div>
+    <div class="amount">$8,900</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </div>
+    <div>
+      <div class="section-label">Add-Ons</div>
+      <h2 class="section-title">Project-Specific Options</h2>
+    </div>
+  </div>
+
+  <div class="project-options-card">
+    <h4>Wall Demolition & Reconfiguration</h4>
+    <p>The angled wall will be demolished and re-framed to allow for: 1) A new floor-to-ceiling in-built storage cabinet. 2) Adding floor space allowing for a bigger vanity to be installed. This requires the storage cabinet in the adjacent bedroom to be squared, spackled, painted and finished as well.</p>
+    <div class="price">$1,250</div>
+  </div>
+
+  <div class="project-options-card">
+    <h4>Powered Medicine Cabinet</h4>
+    <p>Frame and install a new LED-light powered recessed medicine cabinet. Add an electrical power location inside the wall to power the lights.</p>
+    <div class="price">$375</div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+    </div>
+    <div>
+      <div class="section-label">Enhancements</div>
+      <h2 class="section-title">General Options</h2>
+    </div>
+  </div>
+  <p style="color: #888; font-size: 14px; margin-bottom: 20px;">Available upgrades that can be added to your project (labor costs):</p>
+
+  <div class="options-grid">
+    <div class="option-card">
+      <div>
+        <div class="option-name">Ceiling Lighting</div>
+        <div class="option-desc">Low-profile LED spotlights (per light)</div>
+      </div>
+      <div class="option-price">$95</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Ceiling Fan</div>
+        <div class="option-desc">High efficiency fan to replace existing</div>
+      </div>
+      <div class="option-price">$295</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Power Outlet</div>
+        <div class="option-desc">New outlet installation (per outlet)</div>
+      </div>
+      <div class="option-price">$95</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Light Switch</div>
+        <div class="option-desc">New switch installation (per switch)</div>
+      </div>
+      <div class="option-price">$125</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Water Valve Replacement</div>
+        <div class="option-desc">Upgrade 1/2" to 1/4-turn valves (per valve)</div>
+      </div>
+      <div class="option-price">$85</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Grout Sealing</div>
+        <div class="option-desc">Sealer application to prevent discoloration</div>
+      </div>
+      <div class="option-price">$275</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Shower Wall Niche</div>
+        <div class="option-desc">Standard 12"x28" recessed niche</div>
+      </div>
+      <div class="option-price">$775</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Tiled Shower Bench</div>
+        <div class="option-desc">Internal tiled bench installation</div>
+      </div>
+      <div class="option-price">$575</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Shower Shelves</div>
+        <div class="option-desc">Per shelf installation</div>
+      </div>
+      <div class="option-price">$95</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Safety Grab-Bar</div>
+        <div class="option-desc">Per grab-bar installation</div>
+      </div>
+      <div class="option-price">$325</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Rain Shower Head</div>
+        <div class="option-desc">Ceiling-mounted plumbing and install</div>
+      </div>
+      <div class="option-price">$295</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Hand-held Shower Head</div>
+        <div class="option-desc">Wall-mount plumbing and install</div>
+      </div>
+      <div class="option-price">$295</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Fixture Installation</div>
+        <div class="option-desc">TP holder, towel rack, hand towel holder, blinds</div>
+      </div>
+      <div class="option-price">$215</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Specialty Tiles/Patterns</div>
+        <div class="option-desc">Natural stone, large format, complex patterns</div>
+      </div>
+      <div class="option-price">$2.75/sf</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Subfloor Repair</div>
+        <div class="option-desc">Replacement or leveling of damaged sections</div>
+      </div>
+      <div class="option-price">$515</div>
+    </div>
+    <div class="option-card">
+      <div>
+        <div class="option-name">Cast Iron Tub Demolition</div>
+        <div class="option-desc">Extra cost for cast iron bathtub removal</div>
+      </div>
+      <div class="option-price">$225</div>
+    </div>
+  </div>
+
+  <div class="hourly-note">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Additional work not listed above will be discussed, agreed and charged at a flat hourly rate of <strong>$95/hr</strong>.
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-header">
+    <div class="section-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+    </div>
+    <div>
+      <div class="section-label">Terms</div>
+      <h2 class="section-title">General Notes</h2>
+    </div>
+  </div>
+  <div class="notes-card">
+    <h3>Materials</h3>
+    <p>The customer is responsible for all material costs associated with the project, including but not limited to drywall, tiles, waterproofing materials, mortar, grout, hardware, prefabricated items, and any other required supplies. Materials purchased by Stuhl Services on behalf of the project will be reimbursed by the customer upon presentation of receipts.</p>
+
+    <h3>Estimated Material Costs</h3>
+    <div class="material-costs">
+      <div class="material-item">
+        <span class="name">Waterproofing & Hardware</span>
+        <span class="cost">$550 – $850</span>
+      </div>
+      <div class="material-item">
+        <span class="name">Tiles & Related</span>
+        <span class="cost">$750 – $1,250</span>
+      </div>
+      <div class="material-item">
+        <span class="name">Drywall & Paint</span>
+        <span class="cost">$250 – $350</span>
+      </div>
+      <div class="material-item">
+        <span class="name">Glass Door</span>
+        <span class="cost">$450 – $850</span>
+      </div>
+      <div class="material-item">
+        <span class="name">Vanity, Toilet & Cabinet</span>
+        <span class="cost">$900 – $1,250</span>
+      </div>
+      <div class="material-item">
+        <span class="name">Disposal Removal</span>
+        <span class="cost">$350 – $450</span>
+      </div>
+    </div>
+
+    <h3>Payment Schedule</h3>
+    <div class="payment-grid">
+      <div class="payment-step">
+        <div class="pct">15%</div>
+        <div class="when">Deposit upon acceptance</div>
+      </div>
+      <div class="payment-step">
+        <div class="pct">35%</div>
+        <div class="when">Project start date</div>
+      </div>
+      <div class="payment-step">
+        <div class="pct">35%</div>
+        <div class="when">Tile installation complete</div>
+      </div>
+      <div class="payment-step">
+        <div class="pct">15%</div>
+        <div class="when">Project completion</div>
+      </div>
+    </div>
+
+    <h3>Permits & Regulatory Approvals</h3>
+    <p>The customer is responsible for obtaining all required permits and regulatory approvals for this project. Stuhl Services will assist in coordinating this process as needed.</p>
+
+    <h3>Equipment Rental</h3>
+    <p>Any required specialized equipment (including, but not limited to, large-format tile cutters, disposal bins, or power washers) will be discussed separately and may result in additional charges.</p>
+
+    <h3>Waste Disposal</h3>
+    <p>Discarded construction materials will be placed in a dumpster bag (typically located in the driveway) and collected upon completion of the work at an additional cost. Disposal at a public dump is not included in this quotation.</p>
+
+    <h3>Quotation Validity</h3>
+    <p>The quoted prices are valid for <strong>30 days</strong> from the date of issuance. If confirmation is received after this period, a revised quotation may be required.</p>
+  </div>
+</div>
+
+<div class="section">
+  <div class="cta-section">
+    <h3>Selected Projects & References</h3>
+    <p class="cta-sub">See our latest work and hear from our happy customers</p>
+    <div class="cta-links">
+      <a href="https://stuhl-services-llc.netlify.app" class="cta-link" target="_blank">Our Website</a>
+      <a href="https://www.facebook.com/stuhlservices" class="cta-link" target="_blank">Facebook Page</a>
+      <a href="#" class="cta-link">Google Reviews</a>
+    </div>
+  </div>
+
+  <div class="signature-card">
+    <h3>Customer Confirmation</h3>
+    <p>Please confirm this quotation by signing below and send a photo via SMS or WhatsApp to:</p>
+    <div class="sig-phone">908-723-5922</div>
+    <div class="sig-line"></div>
+    <div class="sig-label">Customer Signature & Date</div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="footer-logo">
+    <svg width="22" height="35" viewBox="0 0 250 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M110 32C50.3532 32 2 80.3532 2 140C2 199.647 50.3532 248 110 248V32Z" fill="#EF4444"/>
+      <path d="M125 32H240C240 63.7584 214.242 89.5168 182.5 89.5168C150.758 89.5168 125 63.7584 125 32Z" fill="#D97706"/>
+      <path d="M135 110V360C190.228 360 235 315.228 235 260C235 204.772 190.228 160 135 160V110Z" fill="#1E3A8A"/>
+      <path d="M2 360H110C110 329.624 85.3757 305 55 305C24.6243 305 0 329.624 0 360H2Z" fill="#06B6D4"/>
+    </svg>
+    <span>STUHL SERVICES LLC</span>
+  </div>
+  <div>Copyright &copy; 2026 Stuhl Services LLC. All Rights Reserved.</div>
+  <div class="confidential">Commercial In Confidence</div>
+</div>
+
+</body>
+</html>

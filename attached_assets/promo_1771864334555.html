@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { 
+    width: 100%; 
+    height: 100vh;
+    background: #0F2557;
+    font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  }
+  .wrapper {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    aspect-ratio: 1/1;
+  }
+  .photo {
+    width: 100%;
+    height: 62%;
+    object-fit: cover;
+    display: block;
+  }
+  .bottom {
+    background: #0F2557;
+    height: 38%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    text-align: center;
+  }
+  .headline {
+    color: #fff;
+    font-size: clamp(22px, 5.5vw, 48px);
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .gold-line {
+    width: 60px;
+    height: 3px;
+    background: #B8860B;
+    margin: 10px auto;
+  }
+  .company {
+    color: #B8860B;
+    font-size: clamp(16px, 3.5vw, 28px);
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .services {
+    color: rgba(255,255,255,0.7);
+    font-size: clamp(11px, 2.2vw, 18px);
+    letter-spacing: 2px;
+  }
+  .badge-top-right {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 2;
+  }
+  .stars { color: #B8860B; font-size: clamp(12px, 2.5vw, 20px); }
+  .badge-text { color: #0F2557; font-weight: 700; font-size: clamp(10px, 1.8vw, 14px); }
+  .badge-bottom-left {
+    position: absolute;
+    top: calc(62% - 40px);
+    left: 12px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 10px;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+  .badge-icon {
+    width: 30px;
+    height: 30px;
+    background: #0F2557;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+  .badge-label { font-weight: 700; color: #0F2557; font-size: clamp(11px, 2vw, 16px); }
+  .badge-sub { color: #666; font-size: clamp(8px, 1.4vw, 12px); font-weight: 600; letter-spacing: 1px; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrapper">
+    <img src="/images/hero-main.jpg" class="photo" alt="Bathroom">
+    
+    <div class="badge-top-right">
+      <span class="stars">★★★★★</span>
+      <span class="badge-text">100+ References</span>
+    </div>
+
+    <div class="badge-bottom-left">
+      <div class="badge-icon">✓</div>
+      <div>
+        <div class="badge-label">Owner-Operated</div>
+        <div class="badge-sub">LICENSED, INSURED & BONDED</div>
+      </div>
+    </div>
+
+    <div class="bottom">
+      <div class="headline">Our New Website Is Live</div>
+      <div class="gold-line"></div>
+      <div class="company">STUHL SERVICES LLC</div>
+      <div class="services">Bathrooms | Basements | Kitchens | Custom Work</div>
+    </div>
+  </div>
+</body>
+</html>
