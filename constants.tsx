@@ -62,7 +62,7 @@ export const PROJECTS: Project[] = [
       '/images/bath-newprov-after1.png',
       '/images/bath-newprov-after2.png'
     ],
-    videoUrl: '',
+    videoUrl: '/images/bath-newprov-video.mp4',
     testimonial: {
       text: "Wow, we love it!!! It came out much better than we anticipated.",
       author: "New Providence Homeowner",
