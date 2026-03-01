@@ -294,11 +294,11 @@ const Portfolio: React.FC = () => {
                     <video
                       controls
                       playsInline
-                      preload="metadata"
+                      webkit-playsinline="true"
+                      preload="auto"
                       className="w-full h-auto max-h-[500px] mx-auto"
                       poster={thumb(activeProject.afterImages[0])}
                     >
-                      <source src={activeProject.videoUrl} type="video/quicktime" />
                       <source src={activeProject.videoUrl} type="video/mp4" />
                       Your browser does not support video playback.
                     </video>
