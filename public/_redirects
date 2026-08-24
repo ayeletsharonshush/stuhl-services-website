@@ -1,1 +1,3 @@
-/review    https://search.google.com/local/writereview?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
+/review          https://search.google.com/local/writereview?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
+/google-review   https://search.google.com/local/reviews?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
+/Google-Review   /google-review   301
