@@ -21,5 +21,20 @@ export interface Project {
 export enum Section {
   HOME = 'home',
   PORTFOLIO = 'portfolio',
-  CONTACT = 'contact'
+  CONTACT = 'contact',
+  RECOMMENDS = 'recommends'
+}
+
+export interface RecommendedProduct {
+  name: string;
+  section: string;
+  blurb: string;
+  url: string;
+  image?: string;
+}
+
+export interface RecommendSection {
+  title: string;
+  comingSoon?: boolean;
+  products: RecommendedProduct[];
 }

@@ -4,12 +4,36 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
+import Recommends from './components/Recommends';
 import Footer from './components/Footer';
 import { Section } from './types';
 
+// The site is a state-based SPA (no router). /recommends is the one section with
+// a real URL, so the app reads the path on load and keeps it in sync.
+const sectionFromPath = (): Section =>
+  typeof window !== 'undefined' &&
+  window.location.pathname.toLowerCase().startsWith('/recommends')
+    ? Section.RECOMMENDS
+    : Section.HOME;
+
 const App: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<Section>(Section.HOME);
+  const [activeSection, setActiveSection] = useState<Section>(sectionFromPath());
   const [hasScrolled, setHasScrolled] = useState(false);
+
+  // Keep the URL in sync: /recommends for that section, / otherwise.
+  useEffect(() => {
+    const path = activeSection === Section.RECOMMENDS ? '/recommends' : '/';
+    if (window.location.pathname !== path) {
+      window.history.pushState({}, '', path);
+    }
+  }, [activeSection]);
+
+  // Support browser back/forward.
+  useEffect(() => {
+    const onPop = () => setActiveSection(sectionFromPath());
+    window.addEventListener('popstate', onPop);
+    return () => window.removeEventListener('popstate', onPop);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,6 +61,8 @@ const App: React.FC = () => {
         return <Portfolio />;
       case Section.CONTACT:
         return <Contact />;
+      case Section.RECOMMENDS:
+        return <Recommends />;
       default:
         return <Home onPortfolioClick={() => {}} onContactClick={() => {}} />;
     }
