@@ -22,6 +22,30 @@ export const RECOMMEND_SECTIONS: RecommendSection[] = [
     ],
   },
   {
+    title: 'Drains',
+    products: [
+      {
+        name: 'ShowerShroom Shower Drain Hair Catcher',
+        section: 'Drains',
+        blurb:
+          'The ten dollar strainer from my drain video. It hides inside a standard shower stall drain and catches every hair before it reaches the pipe. Lift it out once a week, wipe it, drop it back in.',
+        url: 'https://link.amazon/B0cxCfu6p',
+      },
+    ],
+  },
+  {
+    title: 'Leak Protection',
+    products: [
+      {
+        name: 'Water Leak Alarm 5 Pack',
+        section: 'Leak Protection',
+        blurb:
+          "Small battery alarms that scream when water touches them. I put them under sinks, by the water heater, and next to the sump pit. A forty dollar pack that catches the leak you can't see.",
+        url: 'https://link.amazon/B0j5f2M96',
+      },
+    ],
+  },
+  {
     title: 'Caulk & Sealing',
     comingSoon: true,
     products: [],
