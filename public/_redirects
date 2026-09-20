@@ -1,4 +1,7 @@
 /products        /recommends      301
+/recommendations /recommends      301
+/recomendations  /recommends      301
+/recommands      /recommends      301
 /review          https://search.google.com/local/writereview?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
 /google-review   https://search.google.com/local/reviews?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
 /Google-Review   /google-review   301

@@ -22,7 +22,14 @@ export enum Section {
   HOME = 'home',
   PORTFOLIO = 'portfolio',
   CONTACT = 'contact',
-  RECOMMENDS = 'recommends'
+  RECOMMENDS = 'recommends',
+  VIDEOS = 'videos'
+}
+
+export interface VideoEntry {
+  title: string;
+  url: string; // YouTube URL (Shorts, watch, or youtu.be form)
+  description: string;
 }
 
 export interface RecommendedProduct {

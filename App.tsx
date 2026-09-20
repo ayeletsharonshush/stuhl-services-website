@@ -5,24 +5,34 @@ import Home from './components/Home';
 import Portfolio from './components/Portfolio';
 import Contact from './components/Contact';
 import Recommends from './components/Recommends';
+import Videos from './components/Videos';
 import Footer from './components/Footer';
 import { Section } from './types';
 
-// The site is a state-based SPA (no router). /recommends is the one section with
-// a real URL, so the app reads the path on load and keeps it in sync.
-const sectionFromPath = (): Section =>
-  typeof window !== 'undefined' &&
-  window.location.pathname.toLowerCase().startsWith('/recommends')
-    ? Section.RECOMMENDS
-    : Section.HOME;
+// The site is a state-based SPA (no router). A few sections carry a real URL,
+// so the app reads the path on load and keeps it in sync.
+const PATH_SECTIONS: { path: string; section: Section }[] = [
+  { path: '/recommends', section: Section.RECOMMENDS },
+  { path: '/videos', section: Section.VIDEOS },
+];
+
+const sectionFromPath = (): Section => {
+  if (typeof window === 'undefined') return Section.HOME;
+  const p = window.location.pathname.toLowerCase();
+  const match = PATH_SECTIONS.find((m) => p.startsWith(m.path));
+  return match ? match.section : Section.HOME;
+};
+
+const pathForSection = (section: Section): string =>
+  PATH_SECTIONS.find((m) => m.section === section)?.path ?? '/';
 
 const App: React.FC = () => {
   const [activeSection, setActiveSection] = useState<Section>(sectionFromPath());
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  // Keep the URL in sync: /recommends for that section, / otherwise.
+  // Keep the URL in sync with the active section.
   useEffect(() => {
-    const path = activeSection === Section.RECOMMENDS ? '/recommends' : '/';
+    const path = pathForSection(activeSection);
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
@@ -63,6 +73,8 @@ const App: React.FC = () => {
         return <Contact />;
       case Section.RECOMMENDS:
         return <Recommends />;
+      case Section.VIDEOS:
+        return <Videos onRecommendsClick={() => setActiveSection(Section.RECOMMENDS)} />;
       default:
         return <Home onPortfolioClick={() => {}} onContactClick={() => {}} />;
     }

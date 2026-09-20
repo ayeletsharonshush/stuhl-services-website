@@ -23,6 +23,7 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
   const navItems = [
     { label: 'Home', value: Section.HOME },
     { label: 'Portfolio', value: Section.PORTFOLIO },
+    { label: 'Videos', value: Section.VIDEOS },
     { label: 'Recommended Products', value: Section.RECOMMENDS },
     { label: 'Contact', value: Section.CONTACT },
   ];

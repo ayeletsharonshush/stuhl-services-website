@@ -90,6 +90,13 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
           <p>&copy; 2021 Stuhl Services LLC. All rights reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <a
+              href="/videos"
+              onClick={(e) => { e.preventDefault(); setSection(Section.VIDEOS); }}
+              className="hover:text-brand-gold transition-colors"
+            >
+              Videos
+            </a>
+            <a
               href="/recommends"
               onClick={(e) => { e.preventDefault(); setSection(Section.RECOMMENDS); }}
               className="hover:text-brand-gold transition-colors"
