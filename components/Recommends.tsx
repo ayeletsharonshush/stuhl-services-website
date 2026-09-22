@@ -16,7 +16,7 @@ const ProductCard: React.FC<{ product: RecommendedProduct }> = ({ product }) => 
         shot's aspect. These are product photos on white, so contain (never
         crop) and keep the plate white. */}
     {product.image && (
-      <div className="h-44 sm:h-48 bg-white border-b border-brand-navy/5 flex items-center justify-center p-4">
+      <div className="h-36 sm:h-40 bg-white border-b border-brand-navy/5 flex items-center justify-center p-4">
         <img
           src={product.image}
           alt={product.name}
@@ -25,7 +25,7 @@ const ProductCard: React.FC<{ product: RecommendedProduct }> = ({ product }) => 
         />
       </div>
     )}
-    <div className="p-5 sm:p-6 flex flex-col flex-grow">
+    <div className="px-5 pt-4 pb-5 flex flex-col flex-grow">
       <h3 className="text-lg font-extrabold text-brand-navy leading-snug">{product.name}</h3>
       <p className="mt-2 text-sm text-brand-charcoal/70 leading-relaxed flex-grow">
         {product.blurb}
@@ -34,7 +34,7 @@ const ProductCard: React.FC<{ product: RecommendedProduct }> = ({ product }) => 
         href={product.url}
         target="_blank"
         rel="noopener sponsored"
-        className="mt-5 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-gold text-white font-bold text-sm rounded-full hover:bg-brand-gold/90 transition-all shadow-md shadow-brand-gold/20 hover:shadow-lg hover:shadow-brand-gold/30 self-start"
+        className="mt-4 inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand-gold text-white font-bold text-sm rounded-full hover:bg-brand-gold/90 transition-all shadow-md shadow-brand-gold/20 hover:shadow-lg hover:shadow-brand-gold/30 self-start"
       >
         View on Amazon
         <ExternalLink size={16} />
@@ -119,32 +119,32 @@ const ProductRow: React.FC<{ section: RecommendSection }> = ({ section }) => {
 
 const Recommends: React.FC = () => {
   return (
-    <div className="pt-6 sm:pt-8 pb-20 bg-brand-cream/40">
+    <div className="pt-4 sm:pt-5 pb-20 bg-brand-cream/40">
       <div className="max-w-5xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header. Kept tight so the title, intro and the first product row all
             land above the fold on a laptop. */}
-        <header className="max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-brand-navy">
+        <header className="max-w-3xl">
+          <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-brand-navy">
             My Recommendations
           </h1>
-          <div className="h-1.5 w-20 bg-brand-gold rounded-full mt-3 mb-4" />
-          <p className="text-base text-brand-charcoal/70 leading-relaxed">
+          <div className="h-1.5 w-20 bg-brand-gold rounded-full mt-2.5 mb-3" />
+          <p className="text-sm sm:text-base text-brand-charcoal/70 leading-relaxed">
             These are products I actually install and trust in my own work. I keep this list short
             on purpose: one recommendation per job, the thing I would put in my own house. The links
             are Amazon affiliate links; if you buy through them it costs you nothing extra and
             supports the free videos I make.
           </p>
-          <p className="mt-3 text-xs text-brand-charcoal/50">{AFFILIATE_DISCLOSURE}</p>
+          <p className="mt-2 text-xs text-brand-charcoal/50">{AFFILIATE_DISCLOSURE}</p>
         </header>
 
         {/* Room sections */}
-        <div className="mt-8 space-y-10">
+        <div className="mt-5 space-y-8">
           {RECOMMEND_SECTIONS.map((section) => (
             <section key={section.title}>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-brand-navy">
                 {section.title}
               </h2>
-              <div className="h-1 w-14 bg-brand-gold/60 rounded-full mt-2 mb-5" />
+              <div className="h-1 w-14 bg-brand-gold/60 rounded-full mt-2 mb-3" />
               <ProductRow section={section} />
             </section>
           ))}
