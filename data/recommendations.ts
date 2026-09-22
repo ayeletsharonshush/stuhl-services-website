@@ -4,50 +4,44 @@ import { RecommendSection } from '../types';
 export const AFFILIATE_DISCLOSURE =
   'As an Amazon Associate I earn from qualifying purchases.';
 
-// Product recommendations, grouped by section. Adding a future product is a
-// data-only edit: append to the relevant section's `products` array (or add a
-// new section). Each product: name, section, blurb, affiliate url, optional
-// image path (a card renders cleanly with or without an image).
+// Product recommendations, grouped by room. Each section renders as a
+// horizontally scrollable row of cards, so adding a product is a data-only
+// edit: append to the relevant section's `products` array (or add a new
+// section). Each product: name, section, blurb, affiliate url, optional image
+// path under public/products/ (a card renders cleanly with or without one).
 export const RECOMMEND_SECTIONS: RecommendSection[] = [
   {
-    title: 'Bathroom Ventilation',
+    title: 'Bathroom',
     products: [
       {
-        name: 'Panasonic FV-0511VFC1 WhisperFit Retrofit Bath Fan',
-        section: 'Bathroom Ventilation',
+        name: 'Retrofit Bathroom Fan',
+        section: 'Bathroom',
         blurb:
-          'The quiet fan I install when a bathroom fan is too weak or too loud. This model has a built-in moisture sensor, so it runs itself when the air gets humid. Fits the existing ceiling opening in most retrofits, so the job stays small.',
+          'The quiet fan I install when a bathroom fan is too weak or too loud: the Panasonic WhisperFit FV-0511VFC1. Built-in moisture sensor, so it runs itself when the air gets humid. Fits the existing ceiling opening in most retrofits, so the job stays small.',
         url: 'https://link.amazon/B025O6XIp',
+        image: '/products/fan-fv0511vfc1.png',
       },
-    ],
-  },
-  {
-    title: 'Drains',
-    products: [
       {
-        name: 'ShowerShroom Shower Drain Hair Catcher',
-        section: 'Drains',
+        name: 'Shower Hair Catcher',
+        section: 'Bathroom',
         blurb:
-          'The ten dollar strainer from my drain video. It hides inside a standard shower stall drain and catches every hair before it reaches the pipe. Lift it out once a week, wipe it, drop it back in.',
+          'The ten dollar ShowerShroom from my drain video. It hides inside a standard shower stall drain and catches every hair before it reaches the pipe. Lift it out once a week, wipe it, drop it back in.',
         url: 'https://link.amazon/B0cxCfu6p',
+        image: '/products/showershroom.png',
       },
     ],
   },
   {
-    title: 'Leak Protection',
+    title: 'Whole House',
     products: [
       {
-        name: 'Water Leak Alarm 5 Pack',
-        section: 'Leak Protection',
+        name: 'Water Leak Alarm',
+        section: 'Whole House',
         blurb:
-          "Small battery alarms that scream when water touches them. I put them under sinks, by the water heater, and next to the sump pit. A forty dollar pack that catches the leak you can't see.",
+          "Small battery alarms that scream when water touches them. I put them under sinks, by the water heater, and next to the sump pit. A forty dollar five pack that catches the leak you can't see.",
         url: 'https://link.amazon/B0j5f2M96',
+        image: '/products/leak-alarm-5pack.png',
       },
     ],
-  },
-  {
-    title: 'Caulk & Sealing',
-    comingSoon: true,
-    products: [],
   },
 ];

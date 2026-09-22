@@ -42,6 +42,5 @@ export interface RecommendedProduct {
 
 export interface RecommendSection {
   title: string;
-  comingSoon?: boolean;
   products: RecommendedProduct[];
 }
