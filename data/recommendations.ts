@@ -42,6 +42,14 @@ export const RECOMMEND_SECTIONS: RecommendSection[] = [
         url: 'https://link.amazon/B0j5f2M96',
         image: '/products/leak-alarm-5pack.png',
       },
+      {
+        name: 'Dryer Vent Cleaning Kit',
+        section: 'Whole House',
+        blurb:
+          'The thirty foot Holikme kit from my dryer lint video. The brush spins on a drill and clears the lint out of the whole vent pipe in about twenty minutes, so once a year keeps your clothes drying fast and leaves nothing in the pipe to catch fire.',
+        url: 'https://www.amazon.com/dp/B07SQYX2FH?tag=stuhlservices-20',
+        image: '/products/dryer-vent-kit.png',
+      },
     ],
   },
 ];
