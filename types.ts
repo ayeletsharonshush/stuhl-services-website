@@ -30,6 +30,7 @@ export interface VideoEntry {
   title: string;
   url: string; // YouTube URL (Shorts, watch, or youtu.be form)
   description: string;
+  noProducts?: boolean; // true hides the "products from these videos" line (e.g. the channel intro)
 }
 
 export interface RecommendedProduct {

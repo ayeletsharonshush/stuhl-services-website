@@ -32,20 +32,22 @@ const VideoCard: React.FC<{
         <p className="mt-2 text-sm text-brand-charcoal/70 leading-relaxed flex-grow">
           {video.description}
         </p>
-        <p className="mt-4 text-xs text-brand-charcoal/50">
-          The products from these videos are on my{' '}
-          <a
-            href="/recommends"
-            onClick={(e) => {
-              e.preventDefault();
-              onRecommendsClick();
-            }}
-            className="text-brand-gold font-semibold hover:underline"
-          >
-            recommended products page
-          </a>
-          .
-        </p>
+        {!video.noProducts && (
+          <p className="mt-4 text-xs text-brand-charcoal/50">
+            The products from these videos are on my{' '}
+            <a
+              href="/recommends"
+              onClick={(e) => {
+                e.preventDefault();
+                onRecommendsClick();
+              }}
+              className="text-brand-gold font-semibold hover:underline"
+            >
+              recommended products page
+            </a>
+            .
+          </p>
+        )}
       </div>
     </div>
   );

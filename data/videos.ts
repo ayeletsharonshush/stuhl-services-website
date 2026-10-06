@@ -2,12 +2,14 @@ import { VideoEntry } from '../types';
 
 // Homeowner-tip videos. Adding a future video is a data-only edit: append a
 // { title, url, description } entry (the url can be a Shorts, watch, or youtu.be
-// link — the embed id is derived in the component).
+// link — the embed id is derived in the component). Set noProducts: true on a
+// video with no recommended product (e.g. the channel intro).
 export const VIDEOS: VideoEntry[] = [
   {
     title: 'Your House Talks. We Listen.',
     url: 'https://youtube.com/shorts/itJADa5A_lY',
     description: 'Why I started this channel: small fixes that stop small problems from getting expensive.',
+    noProducts: true,
   },
   {
     title: "Why Your Bathroom Fan Isn't Stopping Mold",
@@ -18,6 +20,11 @@ export const VIDEOS: VideoEntry[] = [
     title: 'The $10 Fix That Prevents Every Shower Drain Clog',
     url: 'https://youtube.com/shorts/qh5kvpCTLWg',
     description: 'The strainer that hides inside your drain and catches everything.',
+  },
+  {
+    title: 'The $40 Alarm That Catches Leaks Before They Ruin Your Home',
+    url: 'https://youtube.com/shorts/dXfj3yxNPGc',
+    description: 'Small alarms that sound the moment water touches them, before a hidden leak turns into a ruined floor.',
   },
   {
     title: 'The Hidden Fire Hazard in Your Laundry Room',
