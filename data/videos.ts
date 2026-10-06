@@ -5,6 +5,11 @@ import { VideoEntry } from '../types';
 // link — the embed id is derived in the component).
 export const VIDEOS: VideoEntry[] = [
   {
+    title: 'Your House Talks. We Listen.',
+    url: 'https://youtube.com/shorts/itJADa5A_lY',
+    description: 'Why I started this channel: small fixes that stop small problems from getting expensive.',
+  },
+  {
     title: "Why Your Bathroom Fan Isn't Stopping Mold",
     url: 'https://youtube.com/shorts/uQAjoZ5Bepw',
     description: 'One habit change that prevents a moldy wall.',
@@ -13,6 +18,11 @@ export const VIDEOS: VideoEntry[] = [
     title: 'The $10 Fix That Prevents Every Shower Drain Clog',
     url: 'https://youtube.com/shorts/qh5kvpCTLWg',
     description: 'The strainer that hides inside your drain and catches everything.',
+  },
+  {
+    title: 'The Hidden Fire Hazard in Your Laundry Room',
+    url: 'https://youtube.com/shorts/AW4O-Asku28',
+    description: 'Why a slow dryer is a warning sign, and the once-a-year vent cleaning that fixes it.',
   },
 ];
 
