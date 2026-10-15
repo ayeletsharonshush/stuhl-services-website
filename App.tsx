@@ -8,26 +8,7 @@ import Recommends from './components/Recommends';
 import Videos from './components/Videos';
 import Footer from './components/Footer';
 import { Section } from './types';
-
-// The site is a state-based SPA (no router). A few sections carry a real URL,
-// so the app reads the path on load and keeps it in sync.
-const PATH_SECTIONS: { path: string; section: Section }[] = [
-  { path: '/recommends', section: Section.RECOMMENDS },
-  { path: '/videos', section: Section.VIDEOS },
-];
-
-const sectionFromPath = (pathname?: string): Section => {
-  if (pathname === undefined) {
-    if (typeof window === 'undefined') return Section.HOME;
-    pathname = window.location.pathname;
-  }
-  const p = pathname.toLowerCase();
-  const match = PATH_SECTIONS.find((m) => p.startsWith(m.path));
-  return match ? match.section : Section.HOME;
-};
-
-const pathForSection = (section: Section): string =>
-  PATH_SECTIONS.find((m) => m.section === section)?.path ?? '/';
+import { sectionFromPath, pathForSection } from './routes';
 
 // initialPath lets the build-time prerender (entry-server.tsx) render a route
 // without a window; in the browser it is omitted and the real URL is used.

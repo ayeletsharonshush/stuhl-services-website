@@ -18,3 +18,9 @@
 
 /recommends
   Cache-Control: no-cache, no-store, must-revalidate
+
+/portfolio
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/contact
+  Cache-Control: no-cache, no-store, must-revalidate

@@ -9,6 +9,13 @@ interface HomeProps {
   onContactClick: () => void;
 }
 
+// CTAs are real links for crawlers; a plain click stays in-app.
+const inApp = (go: () => void) => (e: React.MouseEvent) => {
+  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+  e.preventDefault();
+  go();
+};
+
 const AnimatedCounter: React.FC<{ end: number; suffix?: string; duration?: number }> = ({ end, suffix = '', duration = 2000 }) => {
   const [count, setCount] = useState(0);
   const ref = useRef<HTMLDivElement>(null);
@@ -89,20 +96,22 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                 <span className="text-brand-navy font-semibold">Stuhl Services LLC</span> is a local family-owned company built on trust, quality craftsmanship, and exceptional references.
               </p>
               <div className="flex flex-row gap-3 sm:gap-4 animate-fade-up" style={{ animationDelay: '300ms' }}>
-                <button 
-                  onClick={onContactClick}
+                <a
+                  href="/contact"
+                  onClick={inApp(onContactClick)}
                   className="group flex-1 sm:flex-none px-6 sm:px-10 py-4 sm:py-5 bg-brand-navy text-white font-bold rounded-2xl hover:bg-brand-charcoal transition-all duration-300 shadow-lg flex items-center justify-center text-sm sm:text-base tracking-wide"
                 >
                   Get a Quote
                   <svg className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                </button>
-                <button 
-                  onClick={onPortfolioClick}
+                </a>
+                <a
+                  href="/portfolio"
+                  onClick={inApp(onPortfolioClick)}
                   className="group flex-1 sm:flex-none px-6 sm:px-10 py-4 sm:py-5 bg-brand-gold text-white font-bold rounded-2xl hover:bg-brand-gold/90 transition-all duration-300 shadow-lg flex items-center justify-center text-sm sm:text-base tracking-wide"
                 >
                   Our Work
                   <svg className="ml-2 w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
-                </button>
+                </a>
               </div>
             </div>
             
@@ -240,12 +249,13 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                     ))}
                   </ul>
                   
-                  <button
-                    onClick={onContactClick}
-                    className="mt-10 px-8 py-4 bg-brand-gold text-white font-bold rounded-2xl hover:bg-brand-gold/90 transition-all duration-300 shadow-lg text-sm sm:text-base tracking-wide"
+                  <a
+                    href="/contact"
+                    onClick={inApp(onContactClick)}
+                    className="inline-block mt-10 px-8 py-4 bg-brand-gold text-white font-bold rounded-2xl hover:bg-brand-gold/90 transition-all duration-300 shadow-lg text-sm sm:text-base tracking-wide"
                   >
                     Free Quote
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

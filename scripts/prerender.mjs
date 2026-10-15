@@ -12,6 +12,8 @@ const SITE = 'https://stuhlservices.com';
 // Every URL the app answers to. `file` is what Netlify serves for that path.
 const ROUTES = [
   { path: '/', file: 'index.html', priority: '1.0' },
+  { path: '/portfolio', file: 'portfolio.html', priority: '0.9' },
+  { path: '/contact', file: 'contact.html', priority: '0.8' },
   { path: '/videos', file: 'videos.html', priority: '0.8' },
   { path: '/recommends', file: 'recommends.html', priority: '0.6' },
 ];

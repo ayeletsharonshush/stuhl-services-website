@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Section } from '../types';
 import { LogoBricks } from './LogoBricks';
+import { pathForSection } from '../routes';
 import { Menu, X, Home } from 'lucide-react';
 const LOGO_VERSION = 2;
 
@@ -28,7 +29,11 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
     { label: 'Contact', value: Section.CONTACT },
   ];
 
-  const handleNav = (section: Section) => {
+  // Nav items are real links so crawlers can follow them; a plain click
+  // switches section in-app, a modified click opens the URL normally.
+  const handleNav = (section: Section, e?: React.MouseEvent) => {
+    if (e && (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0)) return;
+    e?.preventDefault();
     setSection(section);
     setMobileOpen(false);
   };
@@ -39,9 +44,10 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
     }`}>
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
-          <div 
+          <a
+            href="/"
             className="flex items-center cursor-pointer group gap-3"
-            onClick={() => handleNav(Section.HOME)}
+            onClick={(e) => handleNav(Section.HOME, e)}
           >
             <LogoBricks logoImage="/images/logo.png" />
             <div className="flex flex-col leading-none">
@@ -52,13 +58,14 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
                 SERVICES LLC
               </span>
             </div>
-          </div>
+          </a>
           
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.value}
-                onClick={() => handleNav(item.value)}
+                href={pathForSection(item.value)}
+                onClick={(e) => handleNav(item.value, e)}
                 className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                   activeSection === item.value 
                     ? 'bg-brand-navy text-white shadow-md shadow-brand-navy/20' 
@@ -66,14 +73,15 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
-            <button
-              onClick={() => handleNav(Section.CONTACT)}
+            <a
+              href="/contact"
+              onClick={(e) => handleNav(Section.CONTACT, e)}
               className="ml-4 px-6 py-2.5 bg-brand-gold text-white font-bold text-sm rounded-full hover:bg-brand-gold/90 transition-all shadow-md shadow-brand-gold/20 hover:shadow-lg hover:shadow-brand-gold/30"
             >
               Free Estimate
-            </button>
+            </a>
           </div>
 
           <div className="md:hidden flex items-center gap-2">
@@ -99,24 +107,26 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
         <div className="md:hidden glass border-t border-white/50 animate-fade-in">
           <div className="px-5 py-6 space-y-2">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.value}
-                onClick={() => handleNav(item.value)}
-                className={`w-full text-left px-5 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
+                href={pathForSection(item.value)}
+                onClick={(e) => handleNav(item.value, e)}
+                className={`block w-full text-left px-5 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
                   activeSection === item.value 
                     ? 'bg-brand-navy text-white' 
                     : 'text-brand-charcoal/70 hover:bg-brand-navy/5'
                 }`}
               >
                 {item.label}
-              </button>
+              </a>
             ))}
-            <button
-              onClick={() => handleNav(Section.CONTACT)}
-              className="w-full mt-2 px-5 py-3.5 bg-brand-gold text-white font-bold text-sm rounded-2xl"
+            <a
+              href="/contact"
+              onClick={(e) => handleNav(Section.CONTACT, e)}
+              className="block text-center w-full mt-2 px-5 py-3.5 bg-brand-gold text-white font-bold text-sm rounded-2xl"
             >
               Free Estimate
-            </button>
+            </a>
           </div>
         </div>
       )}
