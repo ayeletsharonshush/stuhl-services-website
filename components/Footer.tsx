@@ -7,8 +7,23 @@ interface FooterProps {
   setSection: (section: Section) => void;
 }
 
-const TOWNS_LEFT = ['Long Hill', 'Morristown', 'New Providence'];
-const TOWNS_RIGHT = ['Summit', 'Westfield', 'Watchung'];
+const TOWNS = [
+  'Long Hill',
+  'Gillette',
+  'Stirling',
+  'Millington',
+  'Berkeley Heights',
+  'New Providence',
+  'Summit',
+  'Warren',
+  'Watchung',
+  'Basking Ridge',
+  'Bernardsville',
+  'Chatham',
+  'Madison',
+  'Morristown',
+  'Mountainside',
+];
 
 const Footer: React.FC<FooterProps> = ({ setSection }) => {
   return (
@@ -18,7 +33,7 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
 
           <div className="lg:col-span-5">
             <p className="text-brand-charcoal/60 max-w-md mb-8 leading-relaxed text-sm sm:text-base">
-              Stuhl Services LLC is a licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, and Union Counties, including Berkeley Heights, Warren, Watchung, New Providence, Basking Ridge, Long Hill, Stirling, and Millington. We specialize in bathroom remodeling, basement finishing, kitchens, flooring, carpentry, and handyman work. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
+              Stuhl Services LLC is a licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, and Union Counties, including Long Hill, Gillette, Stirling, Millington, Berkeley Heights, New Providence, Summit, Warren, Watchung, Basking Ridge, Bernardsville, Chatham, Madison, Morristown, and Mountainside. We specialize in bathroom remodeling, basement finishing, kitchens, flooring, carpentry, and handyman work. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -56,7 +71,7 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
                 <p className="text-white/40 text-xs mb-5">From Summit to Watchung, we're the family-owned team your neighbors trust.</p>
 
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 mb-6">
-                  {[...TOWNS_LEFT, ...TOWNS_RIGHT].map((town) => (
+                  {TOWNS.map((town) => (
                     <div key={town} className="flex items-center gap-2 text-sm text-white/70">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0"></div>
                       {town}
