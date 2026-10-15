@@ -7,7 +7,7 @@
     "dev": "tsx server/index.ts & vite",
     "dev:server": "tsx server/index.ts",
     "dev:client": "vite",
-    "build": "vite build",
+    "build": "vite build && vite build --ssr entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
     "start": "tsx server/index.ts",
     "preview": "vite preview"
   },

@@ -8,9 +8,16 @@ if (!rootElement) {
   throw new Error("Could not find root element to mount to");
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(
+const app = (
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+
+// Built pages arrive prerendered (scripts/prerender.mjs), so hydrate them;
+// the dev server serves an empty root, so render from scratch there.
+if (rootElement.hasChildNodes()) {
+  ReactDOM.hydrateRoot(rootElement, app);
+} else {
+  ReactDOM.createRoot(rootElement).render(app);
+}

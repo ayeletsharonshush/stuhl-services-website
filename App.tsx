@@ -16,9 +16,12 @@ const PATH_SECTIONS: { path: string; section: Section }[] = [
   { path: '/videos', section: Section.VIDEOS },
 ];
 
-const sectionFromPath = (): Section => {
-  if (typeof window === 'undefined') return Section.HOME;
-  const p = window.location.pathname.toLowerCase();
+const sectionFromPath = (pathname?: string): Section => {
+  if (pathname === undefined) {
+    if (typeof window === 'undefined') return Section.HOME;
+    pathname = window.location.pathname;
+  }
+  const p = pathname.toLowerCase();
   const match = PATH_SECTIONS.find((m) => p.startsWith(m.path));
   return match ? match.section : Section.HOME;
 };
@@ -26,8 +29,10 @@ const sectionFromPath = (): Section => {
 const pathForSection = (section: Section): string =>
   PATH_SECTIONS.find((m) => m.section === section)?.path ?? '/';
 
-const App: React.FC = () => {
-  const [activeSection, setActiveSection] = useState<Section>(sectionFromPath());
+// initialPath lets the build-time prerender (entry-server.tsx) render a route
+// without a window; in the browser it is omitted and the real URL is used.
+const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
+  const [activeSection, setActiveSection] = useState<Section>(() => sectionFromPath(initialPath));
   const [hasScrolled, setHasScrolled] = useState(false);
 
   // Keep the URL in sync with the active section.

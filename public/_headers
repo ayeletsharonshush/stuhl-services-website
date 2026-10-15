@@ -12,3 +12,9 @@
 
 /*.css
   Cache-Control: public, max-age=86400
+
+/videos
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/recommends
+  Cache-Control: no-cache, no-store, must-revalidate

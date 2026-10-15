@@ -18,7 +18,7 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
 
           <div className="lg:col-span-5">
             <p className="text-brand-charcoal/60 max-w-md mb-8 leading-relaxed text-sm sm:text-base">
-              Stuhl Services LLC is a local, owner-operated remodeling company serving Morris and Union Counties in New Jersey. We specialize in premium bathroom, basement, and kitchen transformations. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
+              Stuhl Services LLC is a licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, and Union Counties, including Berkeley Heights, Warren, Watchung, New Providence, Basking Ridge, Long Hill, Stirling, and Millington. We specialize in bathroom remodeling, basement finishing, kitchens, flooring, carpentry, and handyman work. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -65,7 +65,7 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
                 </div>
 
                 <div className="pt-4 border-t border-white/10">
-                  <p className="text-white/30 text-xs">Serving Morris & Union Counties, NJ</p>
+                  <p className="text-white/30 text-xs">Serving Morris, Somerset, and Union Counties, NJ</p>
                 </div>
               </div>
             </div>
