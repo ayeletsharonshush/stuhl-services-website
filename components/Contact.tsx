@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
           <FadeInSection className="lg:col-span-2">
             <div>
               <span className="inline-block text-brand-cyan font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-cyan/5 rounded-full">Get In Touch</span>
-              <h2 className="text-4xl lg:text-5xl text-brand-navy mb-6 leading-tight">Elevate Your<br />Home Today.</h2>
+              <h1 className="text-4xl lg:text-5xl text-brand-navy mb-6 leading-tight">Elevate Your<br />Home Today.</h1>
               <p className="text-brand-charcoal/50 mb-12 text-lg leading-relaxed">
                 Every project starts with a conversation. Share your vision with us for a zero-obligation consultation.
               </p>

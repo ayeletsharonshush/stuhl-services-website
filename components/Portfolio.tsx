@@ -129,7 +129,7 @@ const Portfolio: React.FC = () => {
         <FadeInSection>
           <div className="text-center mb-16">
             <span className="inline-block text-brand-red font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-red/5 rounded-full">Proven Excellence</span>
-            <h2 className="text-5xl text-brand-navy mb-6">Our Transformations</h2>
+            <h1 className="text-5xl text-brand-navy mb-6">Our Transformations</h1>
             <p className="text-brand-charcoal/50 max-w-2xl mx-auto text-lg mb-10">Real projects from homeowners across New Jersey. Every image is from our actual work.</p>
             
             <div className="flex justify-center gap-2 flex-wrap">
