@@ -7,26 +7,33 @@ import Contact from './components/Contact';
 import Recommends from './components/Recommends';
 import Videos from './components/Videos';
 import Footer from './components/Footer';
+import TownPage from './components/TownPage';
 import { Section } from './types';
-import { sectionFromPath, pathForSection } from './routes';
+import { pageFromPath, pathForPage, Page } from './routes';
+import { headFor, DEFAULT_TITLE } from './head';
+import { townBySlug } from './data/towns';
 
 // initialPath lets the build-time prerender (entry-server.tsx) render a route
 // without a window; in the browser it is omitted and the real URL is used.
 const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
-  const [activeSection, setActiveSection] = useState<Section>(() => sectionFromPath(initialPath));
+  const [page, setPage] = useState<Page>(() => pageFromPath(initialPath));
   const [hasScrolled, setHasScrolled] = useState(false);
+  const activeSection = page.section;
+  const path = pathForPage(page);
+  const setActiveSection = (section: Section) => setPage({ section });
+  const openTown = (townSlug: string) => setPage({ section: Section.TOWN, townSlug });
 
-  // Keep the URL in sync with the active section.
+  // Keep the URL and tab title in sync with the active page.
   useEffect(() => {
-    const path = pathForSection(activeSection);
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
-  }, [activeSection]);
+    document.title = headFor(path).title ?? DEFAULT_TITLE;
+  }, [path]);
 
   // Support browser back/forward.
   useEffect(() => {
-    const onPop = () => setActiveSection(sectionFromPath());
+    const onPop = () => setPage(pageFromPath());
     window.addEventListener('popstate', onPop);
     return () => window.removeEventListener('popstate', onPop);
   }, []);
@@ -42,7 +49,7 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setHasScrolled(false);
-  }, [activeSection]);
+  }, [path]);
 
   const renderContent = () => {
     switch (activeSection) {
@@ -61,6 +68,19 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
         return <Recommends />;
       case Section.VIDEOS:
         return <Videos onRecommendsClick={() => setActiveSection(Section.RECOMMENDS)} />;
+      case Section.TOWN: {
+        const town = townBySlug(page.townSlug);
+        if (town) {
+          return (
+            <TownPage
+              town={town}
+              onContactClick={() => setActiveSection(Section.CONTACT)}
+              onPortfolioClick={() => setActiveSection(Section.PORTFOLIO)}
+            />
+          );
+        }
+        return <Home onPortfolioClick={() => setActiveSection(Section.PORTFOLIO)} onContactClick={() => setActiveSection(Section.CONTACT)} />;
+      }
       default:
         return <Home onPortfolioClick={() => {}} onContactClick={() => {}} />;
     }
@@ -74,7 +94,7 @@ const App: React.FC<{ initialPath?: string }> = ({ initialPath }) => {
         {renderContent()}
       </main>
 
-      <Footer setSection={setActiveSection} />
+      <Footer setSection={setActiveSection} onTownClick={openTown} />
       
       {hasScrolled && (
         <div className="fixed bottom-20 right-6 md:hidden z-40 animate-fade-in flex flex-col gap-3">

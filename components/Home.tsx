@@ -2,19 +2,13 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Section } from '../types';
 import { SERVICES } from '../constants';
+import { inApp } from './inApp';
 import { CheckCircle, ShieldCheck, MapPin, Users, CookingPot, Bath, Warehouse, LayoutGrid, ArrowRight, Star, Award } from 'lucide-react';
 
 interface HomeProps {
   onPortfolioClick: () => void;
   onContactClick: () => void;
 }
-
-// CTAs are real links for crawlers; a plain click stays in-app.
-const inApp = (go: () => void) => (e: React.MouseEvent) => {
-  if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
-  e.preventDefault();
-  go();
-};
 
 const AnimatedCounter: React.FC<{ end: number; suffix?: string; duration?: number }> = ({ end, suffix = '', duration = 2000 }) => {
   const [count, setCount] = useState(0);

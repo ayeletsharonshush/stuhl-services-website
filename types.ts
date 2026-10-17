@@ -23,7 +23,8 @@ export enum Section {
   PORTFOLIO = 'portfolio',
   CONTACT = 'contact',
   RECOMMENDS = 'recommends',
-  VIDEOS = 'videos'
+  VIDEOS = 'videos',
+  TOWN = 'town'
 }
 
 export interface VideoEntry {

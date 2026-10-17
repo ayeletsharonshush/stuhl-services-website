@@ -2,30 +2,18 @@
 import React from 'react';
 import { Section } from '../types';
 import { Facebook, Instagram, Phone, Mail, MapPin } from 'lucide-react';
+import { SERVICE_AREA_TOWNS } from '../data/business';
+import { TOWNS } from '../data/towns';
+import { townPath } from '../routes';
+import { inApp } from './inApp';
 
 interface FooterProps {
   setSection: (section: Section) => void;
+  onTownClick: (townSlug: string) => void;
 }
 
-const TOWNS = [
-  'Long Hill',
-  'Gillette',
-  'Stirling',
-  'Millington',
-  'Berkeley Heights',
-  'New Providence',
-  'Summit',
-  'Warren',
-  'Watchung',
-  'Basking Ridge',
-  'Bernardsville',
-  'Chatham',
-  'Madison',
-  'Morristown',
-  'Mountainside',
-];
 
-const Footer: React.FC<FooterProps> = ({ setSection }) => {
+const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
   return (
     <footer className="bg-brand-cream text-brand-navy">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-6 lg:py-8">
@@ -71,7 +59,7 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
                 <p className="text-white/40 text-xs mb-5">From Summit to Watchung, we're the family-owned team your neighbors trust.</p>
 
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 mb-6">
-                  {TOWNS.map((town) => (
+                  {SERVICE_AREA_TOWNS.map((town) => (
                     <div key={town} className="flex items-center gap-2 text-sm text-white/70">
                       <div className="w-1.5 h-1.5 rounded-full bg-brand-gold shrink-0"></div>
                       {town}
@@ -100,6 +88,23 @@ const Footer: React.FC<FooterProps> = ({ setSection }) => {
             </div>
           </div>
         </div>
+
+        <nav aria-label="Areas we serve" className="mb-8">
+          <h4 className="font-extrabold text-brand-navy text-xs uppercase tracking-wider mb-3">Areas We Serve</h4>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
+            {TOWNS.map((town) => (
+              <li key={town.slug}>
+                <a
+                  href={townPath(town.slug)}
+                  onClick={inApp(() => onTownClick(town.slug))}
+                  className="text-brand-charcoal/50 hover:text-brand-gold transition-colors"
+                >
+                  {town.label ?? town.name}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="flex flex-col md:flex-row justify-between items-center text-brand-charcoal/30 text-xs pt-8 border-t border-brand-navy/10">
           <p>&copy; 2021 Stuhl Services LLC. All rights reserved.</p>
