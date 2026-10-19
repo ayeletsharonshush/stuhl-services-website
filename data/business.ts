@@ -6,7 +6,7 @@ export const PHONE_DISPLAY = '908-723-5922';
 export const PHONE_HREF = 'tel:9087235922';
 export const LICENSE_NUMBER = '13VH11735700';
 
-export const SERVICE_AREA_COUNTIES = ['Morris', 'Somerset', 'Union'];
+export const SERVICE_AREA_COUNTIES = ['Morris', 'Somerset', 'Union', 'Essex'];
 
 export const SERVICE_AREA_TOWNS = [
   'Long Hill',
@@ -24,6 +24,8 @@ export const SERVICE_AREA_TOWNS = [
   'Madison',
   'Morristown',
   'Mountainside',
+  'Millburn',
+  'Westfield',
 ];
 
 export type ServiceIcon = 'bath' | 'basement' | 'kitchen' | 'flooring' | 'carpentry' | 'handyman';
@@ -69,7 +71,7 @@ export const businessJsonLd = (areaServed?: string[]) => ({
   '@id': `${SITE_URL}/#business`,
   name: 'Stuhl Services LLC',
   description:
-    'Licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, and Union Counties. ' +
+    'Licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, Union, and Essex Counties. ' +
     `NJ Home Improvement Contractor license ${LICENSE_NUMBER}.`,
   url: SITE_URL,
   telephone: '+1-908-723-5922',
