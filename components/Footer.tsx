@@ -21,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
 
           <div className="lg:col-span-5">
             <p className="text-brand-charcoal/60 max-w-md mb-8 leading-relaxed text-sm sm:text-base">
-              Stuhl Services LLC is a licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, Union, and Essex Counties, including Long Hill, Gillette, Stirling, Millington, Berkeley Heights, New Providence, Summit, Warren, Watchung, Basking Ridge, Bernardsville, Chatham, Madison, Morristown, and Mountainside. We specialize in bathroom remodeling, basement finishing, kitchens, flooring, carpentry, and handyman work. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
+              Stuhl Services LLC is a licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, Union, and Essex Counties, including Long Hill, Gillette, Stirling, Millington, Berkeley Heights, New Providence, Summit, Warren, Watchung, Basking Ridge, Bernardsville, Chatham, Madison, Morristown, Mountainside, Millburn, and Westfield. We specialize in bathroom remodeling, basement finishing, kitchens, flooring, carpentry, and handyman work. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 mb-8">
