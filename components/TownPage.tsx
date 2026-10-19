@@ -43,7 +43,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                 Serving {town.name}, NJ
               </span>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-navy leading-[1.1] mb-8">
-                Bathroom Remodeling &amp; Home Renovation in {town.name}, NJ
+                Home Remodeling in {town.name}, NJ
               </h1>
               {town.intro.map((paragraph, i) => (
                 <p key={i} className="text-lg text-brand-charcoal/60 mb-5 leading-relaxed">

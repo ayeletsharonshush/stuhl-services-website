@@ -17,7 +17,7 @@ export const headFor = (path: string): Head => {
   const town = page.section === Section.TOWN ? townBySlug(page.townSlug) : undefined;
   if (!town) return { jsonLd: businessJsonLd() };
   return {
-    title: `Bathroom & Home Remodeling in ${town.name}, NJ | Stuhl Services LLC`,
+    title: `Home Remodeling in ${town.name}, NJ | Stuhl Services LLC`,
     description: town.metaDescription,
     jsonLd: businessJsonLd(town.areaServed),
   };
