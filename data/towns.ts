@@ -1,10 +1,14 @@
 // Town landing pages, served at /remodeling-<slug>-nj (see routes.ts).
 // `testimonialFrom` and `photos` point at projects in constants.tsx, so the
 // quotes and pictures are real site content with their real locations.
+// A town-specific job photo that isn't a portfolio project gives its own
+// `alt` and `caption` instead of a `projectId`.
 
 export interface TownPhoto {
-  projectId: string;
   src: string;
+  projectId?: string;
+  alt?: string;
+  caption?: { title: string; location: string };
 }
 
 export interface Town {
@@ -68,7 +72,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-newprov',
     photos: [
-      { projectId: 'bath-newprov', src: '/images/bath-newprov-after3.png' },
+      { projectId: 'bath-newprov', src: '/images/bath-newprov-after1-web.jpg' },
       { projectId: 'bsmt-newprov', src: '/images/bsmt-newprov-after3.png' },
       { projectId: 'bath-newprov', src: '/images/bath-newprov-after4.png' },
     ],
@@ -86,9 +90,9 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bath-newprov',
     photos: [
-      { projectId: 'bath-newprov', src: '/images/bath-newprov-after4.png' },
+      { projectId: 'bath-watchung', src: '/images/bath-watchung-thumb.jpg' },
       { projectId: 'kitchen-gillette', src: '/images/kitchen-gillette-after3.png' },
-      { projectId: 'bath-watchung', src: '/images/bath-watchung-after3.png' },
+      { projectId: 'bath-newprov', src: '/images/bath-newprov-after4.png' },
     ],
   },
   {
@@ -139,6 +143,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'kitchen-warren',
     photos: [
+      { projectId: 'bsmt-newprov', src: '/images/bsmt-newprov-thumb.png' },
       { projectId: 'kitchen-warren', src: '/images/kitchen-warren-after1.png' },
       { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-thumb.png' },
     ],
@@ -188,6 +193,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-berkeley',
     photos: [
+      { projectId: 'bsmt-warren', src: '/images/bsmt-warren-thumb.png' },
       { projectId: 'bsmt-newprov', src: '/images/bsmt-newprov-after3.png' },
       { projectId: 'bath-watchung', src: '/images/bath-watchung-after4.png' },
     ],
@@ -204,7 +210,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-warren',
     photos: [
-      { projectId: 'bath-watchung', src: '/images/bath-watchung-after3.png' },
+      { projectId: 'bath-watchung', src: '/images/bath-watchung-after2-web.jpg' },
       { projectId: 'kitchen-warren', src: '/images/kitchen-warren-thumb.png' },
       { projectId: 'bsmt-warren', src: '/images/bsmt-warren-after3.png' },
     ],
@@ -222,9 +228,13 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bath-watchung',
     photos: [
-      { projectId: 'bath-millington', src: '/images/bath-millington-after3.png' },
+      { projectId: 'bath-millington', src: '/images/bath-millington-thumb.jpg' },
+      {
+        src: '/images/kitchen-millburn-hero.jpg',
+        alt: 'Kitchen remodel by Stuhl Services in Millburn, NJ',
+        caption: { title: 'Kitchen Remodel', location: 'Millburn, NJ' },
+      },
       { projectId: 'bath-watchung', src: '/images/bath-watchung-after4.png' },
-      { projectId: 'kitchen-warren', src: '/images/kitchen-warren-after1.png' },
     ],
   },
   {
@@ -239,7 +249,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'kitchen-warren',
     photos: [
-      { projectId: 'bath-newprov', src: '/images/bath-newprov-after3.png' },
+      { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-after3-web.jpg' },
       { projectId: 'kitchen-gillette', src: '/images/kitchen-gillette-after4.png' },
     ],
   },
@@ -255,7 +265,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-newprov',
     photos: [
-      { projectId: 'bath-watchung', src: '/images/bath-watchung-after3.png' },
+      { projectId: 'bath-newprov', src: '/images/bath-newprov-after2-web.jpg' },
       { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-thumb.png' },
     ],
   },

@@ -25,8 +25,13 @@ const projectById = (id: string) => PROJECTS.find((p) => p.id === id);
 const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioClick }) => {
   const testimonialProject = projectById(town.testimonialFrom);
   const photos = town.photos
-    .map((photo) => ({ ...photo, project: projectById(photo.projectId) }))
-    .filter((photo) => photo.project);
+    .map((photo) => {
+      const project = photo.projectId ? projectById(photo.projectId) : undefined;
+      const alt = photo.alt ?? (project && `${project.category} remodel by Stuhl Services in ${project.location}`);
+      const caption = photo.caption ?? (project && { title: project.title, location: project.location });
+      return { src: photo.src, alt, caption };
+    })
+    .filter((photo) => photo.alt);
   const [heroPhoto, ...morePhotos] = photos;
 
   return (
@@ -73,7 +78,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                 <figure className="rounded-3xl overflow-hidden shadow-2xl shadow-brand-navy/15">
                   <img
                     src={heroPhoto.src}
-                    alt={`${heroPhoto.project!.category} remodel by Stuhl Services in ${heroPhoto.project!.location}`}
+                    alt={heroPhoto.alt}
                     className="w-full h-[420px] lg:h-[520px] object-cover"
                   />
                 </figure>
@@ -138,14 +143,16 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
               <figure key={photo.src} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-brand-navy/5">
                 <img
                   src={photo.src}
-                  alt={`${photo.project!.category} remodel by Stuhl Services in ${photo.project!.location}`}
+                  alt={photo.alt}
                   loading="lazy"
                   className="w-full aspect-[4/3] object-cover"
                 />
-                <figcaption className="px-5 py-4">
-                  <span className="block text-sm font-extrabold text-brand-navy">{photo.project!.title}</span>
-                  <span className="block text-xs text-brand-charcoal/40 font-semibold mt-0.5">{photo.project!.location}</span>
-                </figcaption>
+                {photo.caption && (
+                  <figcaption className="px-5 py-4">
+                    <span className="block text-sm font-extrabold text-brand-navy">{photo.caption.title}</span>
+                    <span className="block text-xs text-brand-charcoal/40 font-semibold mt-0.5">{photo.caption.location}</span>
+                  </figcaption>
+                )}
               </figure>
             ))}
             {testimonialProject && (
