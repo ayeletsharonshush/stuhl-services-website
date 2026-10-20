@@ -55,6 +55,11 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-berkeley',
     photos: [
+      {
+        src: '/images/sunroom-berkeley-heights-hero.jpg',
+        alt: 'Sunroom by Stuhl Services in Berkeley Heights, NJ',
+        caption: { title: 'Sunroom', location: 'Berkeley Heights, NJ' },
+      },
       { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-thumb.png' },
       { projectId: 'bsmt-newprov', src: '/images/bsmt-newprov-after3.png' },
     ],
