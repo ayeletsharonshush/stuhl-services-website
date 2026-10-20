@@ -233,12 +233,12 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bath-watchung',
     photos: [
-      { projectId: 'bath-millington', src: '/images/bath-millington-thumb.jpg' },
       {
         src: '/images/kitchen-millburn-hero.jpg',
         alt: 'Kitchen remodel by Stuhl Services in Millburn, NJ',
         caption: { title: 'Kitchen Remodel', location: 'Millburn, NJ' },
       },
+      { projectId: 'bath-millington', src: '/images/bath-millington-thumb.jpg' },
       { projectId: 'bath-watchung', src: '/images/bath-watchung-after4.png' },
     ],
   },
@@ -254,6 +254,11 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'kitchen-warren',
     photos: [
+      {
+        src: '/images/bath-westfield-hero.jpg',
+        alt: 'Bathroom remodel by Stuhl Services in Westfield, NJ',
+        caption: { title: 'Bathroom Remodel', location: 'Westfield, NJ' },
+      },
       { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-after3-web.jpg' },
       { projectId: 'kitchen-gillette', src: '/images/kitchen-gillette-after4.png' },
     ],
