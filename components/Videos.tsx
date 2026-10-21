@@ -28,12 +28,12 @@ const VideoCard: React.FC<{
         )}
       </div>
       <div className="p-5 sm:p-6 flex flex-col flex-grow">
-        <h3 className="text-lg font-extrabold text-brand-navy leading-snug">{video.title}</h3>
+        <h2 className="text-lg font-extrabold text-brand-navy leading-snug">{video.title}</h2>
         <p className="mt-2 text-sm text-brand-charcoal/70 leading-relaxed flex-grow">
           {video.description}
         </p>
         {!video.noProducts && (
-          <p className="mt-4 text-xs text-brand-charcoal/50">
+          <p className="mt-4 text-xs text-brand-charcoal/70">
             The products from these videos are on my{' '}
             <a
               href="/recommends"

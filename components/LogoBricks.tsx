@@ -1,4 +1,8 @@
 import { useState, useEffect } from "react";
+import { imageAttrs } from "../data/images";
+
+// The logo box is 52px; the browser picks the 160px copy (512px on 3x+ screens).
+const logoAttrs = (logoImage: string) => imageAttrs(logoImage, "52px");
 
 interface LogoBricksProps {
   logoImage: string;
@@ -7,7 +11,7 @@ interface LogoBricksProps {
 export function Logo3D({ logoImage }: LogoBricksProps) {
   return (
     <div className="logo-spin-3d shrink-0 overflow-hidden" style={{ width: '2.75rem', height: '2.75rem' }}>
-      <img src={logoImage} alt="" className="w-full mix-blend-multiply" style={{ marginTop: '-8%', marginBottom: '-55%' }} />
+      <img {...logoAttrs(logoImage)} alt="" className="w-full mix-blend-multiply" style={{ marginTop: '-8%', marginBottom: '-55%' }} />
     </div>
   );
 }
@@ -63,13 +67,13 @@ export function LogoBricks({ logoImage }: LogoBricksProps) {
             );
           })}
         </svg>
-        <img src={logoImage} alt="" className="w-full absolute inset-0" style={{ zIndex: 2, mixBlendMode: 'screen', marginTop: '-8%', opacity: 0 }} />
+        <img {...logoAttrs(logoImage)} alt="" className="w-full absolute inset-0" style={{ zIndex: 2, mixBlendMode: 'screen', marginTop: '-8%', opacity: 0 }} />
       </div>
       <div
         className="absolute inset-0 transition-opacity duration-700"
         style={{ opacity: phase === 'reveal' ? 1 : 0 }}
       >
-        <img src={logoImage} alt="" className="w-full" style={{ marginTop: '-8%', marginBottom: '-55%' }} />
+        <img {...logoAttrs(logoImage)} alt="" className="w-full" style={{ marginTop: '-8%', marginBottom: '-55%' }} />
       </div>
     </div>
   );

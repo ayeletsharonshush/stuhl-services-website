@@ -5,3 +5,6 @@
 /review          https://search.google.com/local/writereview?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
 /google-review   https://search.google.com/local/reviews?placeid=ChIJWaqXFBEKeKoRpG0GgtCcLFk
 /Google-Review   /google-review   301
+
+# Not a real file. Without this rule the SPA fallback would answer with the homepage.
+/ai-catalog.json  /404.html  404

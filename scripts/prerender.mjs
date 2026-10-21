@@ -13,7 +13,7 @@ const dist = path.join(root, 'dist');
 const { render, ROUTES, headFor, DEFAULT_TITLE, SITE_URL } = await import(
   pathToFileURL(path.join(root, 'dist-ssr/entry-server.js')).href
 );
-const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
+let template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 
 const escapeAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
@@ -36,6 +36,28 @@ if (!template.includes(`<title>${DEFAULT_TITLE}</title>`)) {
   throw new Error('index.html <title> does not match DEFAULT_TITLE in head.ts');
 }
 
+// Inline the stylesheet (Tailwind plus the font-face rules, ~10 KB gzipped) so
+// no CSS request blocks the first paint, and preload the two font files the
+// first screen uses so text doesn't reflow when they arrive.
+const cssLink = /<link rel="stylesheet" crossorigin href="(\/assets\/index-[\w-]+\.css)">/;
+const cssFile = template.match(cssLink)?.[1];
+if (!cssFile) throw new Error('no built stylesheet link in dist/index.html');
+const css = fs.readFileSync(path.join(dist, cssFile), 'utf8');
+template = replaceOnce(template, cssLink, `<style>${css}</style>`, 'stylesheet link');
+
+const assets = fs.readdirSync(path.join(dist, 'assets'));
+const fontPreloads = [/^inter-latin-wght-normal-.*\.woff2$/, /^dm-serif-display-latin-400-normal-.*\.woff2$/].map((pattern) => {
+  const file = assets.find((f) => pattern.test(f));
+  if (!file) throw new Error(`no font file matching ${pattern} in dist/assets`);
+  return `<link rel="preload" href="/assets/${file}" as="font" type="font/woff2" crossorigin />`;
+});
+template = replaceOnce(template, /<\/head>/, `  ${fontPreloads.join('\n    ')}\n  </head>`, '</head>');
+
+const preloadImage = (img) =>
+  `<link rel="preload" as="image" href="${img.src}"` +
+  (img.srcSet ? ` imagesrcset="${img.srcSet}" imagesizes="${img.sizes}"` : '') +
+  ` fetchpriority="high" />`;
+
 const fileFor = (route) => (route === '/' ? 'index.html' : `${route.slice(1)}.html`);
 
 for (const route of ROUTES) {
@@ -44,7 +66,8 @@ for (const route of ROUTES) {
   let html = template;
 
   html = replaceOnce(html, /<div id="root"><\/div>/, `<div id="root">${render(route.path)}</div>`, 'root div');
-  html = replaceOnce(html, /<\/title>/, `</title>\n    <link rel="canonical" href="${url}" />`, '</title>');
+  const preload = head.heroImage ? `\n    ${preloadImage(head.heroImage)}` : '';
+  html = replaceOnce(html, /<\/title>/, `</title>\n    <link rel="canonical" href="${url}" />${preload}`, '</title>');
   html = setMeta(html, 'property', 'og:url', url);
   if (head.title) {
     html = replaceOnce(html, /<title>[^<]*<\/title>/, `<title>${escapeAttr(head.title)}</title>`, '<title>');

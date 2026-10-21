@@ -4,6 +4,7 @@ import { Section } from '../types';
 import { SERVICES } from '../constants';
 import { inApp } from './inApp';
 import { CheckCircle, ShieldCheck, MapPin, Users, CookingPot, Bath, Warehouse, LayoutGrid, ArrowRight, Star, Award } from 'lucide-react';
+import { imageAttrs, HOME_HERO } from '../data/images';
 
 interface HomeProps {
   onPortfolioClick: () => void;
@@ -85,7 +86,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                 Crafting Spaces<br />
                 You <span className="text-gradient italic">Love.</span>
               </h1>
-              <p className="text-lg text-brand-charcoal/60 mb-10 max-w-lg leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
+              <p className="text-lg text-brand-charcoal/70 mb-10 max-w-lg leading-relaxed animate-fade-up" style={{ animationDelay: '200ms' }}>
                 From custom kitchens to premium bathroom retreats, we bring high-end craftsmanship and local reliability to every square inch of your home.<br />
                 <span className="text-brand-navy font-semibold">Stuhl Services LLC</span> is a local family-owned company built on trust, quality craftsmanship, and exceptional references.
               </p>
@@ -114,14 +115,15 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                 className="relative rounded-3xl overflow-hidden shadow-2xl shadow-brand-navy/15 cursor-pointer group/photo"
                 onClick={onPortfolioClick}
               >
-                <img 
-                  src="/images/hero-main.jpg" 
-                  alt="Modern Home Renovation" 
+                <img
+                  {...imageAttrs(HOME_HERO.path, HOME_HERO.sizes)}
+                  alt="Modern Home Renovation"
+                  fetchPriority="high"
                   className="w-full h-[500px] object-cover group-hover/photo:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/40 via-transparent to-transparent"></div>
                 <div className="absolute top-[55%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-0 group-hover/photo:scale-110 transition-transform duration-300">
-                  <img src="/images/click-icon.png" alt="Click to see more" className="w-16 h-16 drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" />
+                  <img {...imageAttrs('/images/click-icon.png')} alt="" className="w-16 h-16 object-contain drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]" />
                   <span className="text-white font-bold text-base tracking-wide drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)] -mt-1">More</span>
                 </div>
               </div>
@@ -133,7 +135,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                   </div>
                   <div>
                     <p className="font-extrabold text-brand-navy text-sm">Owner-Operated</p>
-                    <p className="text-[10px] font-semibold text-brand-charcoal/40 tracking-wider uppercase">Certified Pros</p>
+                    <p className="text-[10px] font-semibold text-brand-charcoal/70 tracking-wider uppercase">Certified Pros</p>
                   </div>
                 </div>
               </div>
@@ -144,7 +146,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                     <Star key={i} size={14} className="text-brand-gold fill-brand-gold" />
                   ))}
                 </div>
-                <p className="text-[10px] font-bold text-brand-charcoal/50 mt-1">100+ References</p>
+                <p className="text-[10px] font-bold text-brand-charcoal/70 mt-1">100+ References</p>
               </div>
             </div>
           </div>
@@ -155,7 +157,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                 <div className="text-4xl font-extrabold text-brand-navy">
                   <AnimatedCounter end={6} suffix="+" />
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/40 mt-1">Local Years</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/70 mt-1">Local Years</div>
               </div>
             </FadeInSection>
             <FadeInSection delay={150}>
@@ -163,7 +165,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                 <div className="text-4xl font-extrabold text-brand-gold">
                   <AnimatedCounter end={100} suffix="+" />
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/40 mt-1">Ref. Projects</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/70 mt-1">Ref. Projects</div>
               </div>
             </FadeInSection>
             <FadeInSection delay={300}>
@@ -171,7 +173,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                 <div className="text-4xl font-extrabold text-brand-cyan">
                   <AnimatedCounter end={100} suffix="%" />
                 </div>
-                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/40 mt-1">Satisfaction</div>
+                <div className="text-[10px] font-bold uppercase tracking-widest text-brand-charcoal/70 mt-1">Satisfaction</div>
               </div>
             </FadeInSection>
           </div>
@@ -186,7 +188,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
             <div className="text-center mb-10 lg:mb-20">
               <span className="inline-block text-brand-gold font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-gold/5 rounded-full">Specializations</span>
               <h2 className="text-4xl lg:text-5xl text-brand-navy mb-6">Our Remodeling Expertise</h2>
-              <p className="text-brand-charcoal/50 max-w-xl mx-auto">From concept to completion, we bring unmatched skill to every project.</p>
+              <p className="text-brand-charcoal/70 max-w-xl mx-auto">From concept to completion, we bring unmatched skill to every project.</p>
             </div>
           </FadeInSection>
           
@@ -201,7 +203,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                     </div>
                     <div>
                       <h3 className="text-base font-extrabold mb-1 text-brand-navy">{service.title}</h3>
-                      <p className="text-brand-charcoal/50 text-sm leading-relaxed">{service.description}</p>
+                      <p className="text-brand-charcoal/70 text-sm leading-relaxed">{service.description}</p>
                     </div>
                   </div>
                 </FadeInSection>
@@ -220,9 +222,9 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
               
               <div className="relative z-10 lg:grid lg:grid-cols-2 gap-16 items-start">
                 <div>
-                  <span className="inline-block text-brand-gold font-bold uppercase tracking-[0.3em] text-xs mb-6 px-4 py-1.5 bg-brand-gold/10 rounded-full border border-brand-gold/20">Why Choose Us</span>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">Expert Service.<br /><span className="text-brand-gold italic">Local Trust.</span></h2>
-                  <p className="text-white/50 mb-10 text-base sm:text-lg leading-relaxed">At Stuhl Services, we treat your home like our own. Our business is built on word-of-mouth and a long list of successful local references.</p>
+                  <span className="inline-block text-brand-gold-light font-bold uppercase tracking-[0.3em] text-xs mb-6 px-4 py-1.5 bg-brand-gold/10 rounded-full border border-brand-gold-light/20">Why Choose Us</span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">Expert Service.<br /><span className="text-brand-gold-light italic">Local Trust.</span></h2>
+                  <p className="text-white/70 mb-10 text-base sm:text-lg leading-relaxed">At Stuhl Services, we treat your home like our own. Our business is built on word-of-mouth and a long list of successful local references.</p>
                 </div>
                 <div>
                   <ul className="space-y-6">
@@ -236,7 +238,7 @@ const Home: React.FC<HomeProps> = ({ onPortfolioClick, onContactClick }) => {
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-4">
                         <div className="bg-brand-gold/20 p-1.5 rounded-full mt-0.5 shrink-0">
-                          <CheckCircle className="text-brand-gold" size={18} />
+                          <CheckCircle className="text-brand-gold-light" size={18} aria-hidden="true" />
                         </div>
                         <span className="text-white/80 font-medium text-sm sm:text-base leading-relaxed">{item}</span>
                       </li>

@@ -88,16 +88,19 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection, setSection }) => {
             {activeSection !== Section.HOME && (
               <button
                 onClick={() => handleNav(Section.HOME)}
+                aria-label="Home"
                 className="p-2 rounded-xl bg-transparent hover:bg-brand-navy/5 transition-colors"
               >
-                <Home size={22} className="text-brand-navy" />
+                <Home size={22} className="text-brand-navy" aria-hidden="true" />
               </button>
             )}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={mobileOpen}
               className="p-2 rounded-xl hover:bg-brand-navy/5 transition-colors"
             >
-              {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+              {mobileOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </button>
           </div>
         </div>

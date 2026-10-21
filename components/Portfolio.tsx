@@ -3,8 +3,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { PROJECTS } from '../constants';
 import { Project } from '../types';
 import { Quote, MoveRight, X, Eye, MapPin, Play, ChevronLeft, ChevronRight } from 'lucide-react';
+import { imageAttrs, cardImage } from '../data/images';
 
-const thumb = (src: string) => src.replace('/images/', '/images/thumbs/');
+const CARD_SIZES = '(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw';
 
 const FadeInSection: React.FC<{ children: React.ReactNode; className?: string; delay?: number }> = ({ children, className = '', delay = 0 }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,30 +52,33 @@ const Lightbox: React.FC<{
     <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95" onClick={onClose}>
       <button
         onClick={onClose}
+        aria-label="Close photo viewer"
         className="absolute top-4 right-4 z-10 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all"
       >
-        <X size={24} />
+        <X size={24} aria-hidden="true" />
       </button>
 
       {images.length > 1 && (
         <>
           <button
             onClick={(e) => { e.stopPropagation(); setCurrentIndex(i => (i - 1 + images.length) % images.length); }}
+            aria-label="Previous photo"
             className="absolute left-4 z-10 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all"
           >
-            <ChevronLeft size={28} />
+            <ChevronLeft size={28} aria-hidden="true" />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); setCurrentIndex(i => (i + 1) % images.length); }}
+            aria-label="Next photo"
             className="absolute right-4 z-10 p-3 bg-white/10 hover:bg-white/20 text-white rounded-full transition-all"
           >
-            <ChevronRight size={28} />
+            <ChevronRight size={28} aria-hidden="true" />
           </button>
         </>
       )}
 
       <img
-        src={images[currentIndex]}
+        {...imageAttrs(images[currentIndex], '95vw')}
         alt={`Photo ${currentIndex + 1}`}
         className="max-w-[95vw] max-h-[90vh] object-contain"
         onClick={(e) => e.stopPropagation()}
@@ -86,6 +90,8 @@ const Lightbox: React.FC<{
             <button
               key={i}
               onClick={(e) => { e.stopPropagation(); setCurrentIndex(i); }}
+              aria-label={`Show photo ${i + 1} of ${images.length}`}
+              aria-current={i === currentIndex}
               className={`w-2.5 h-2.5 rounded-full transition-all ${i === currentIndex ? 'bg-white scale-125' : 'bg-white/40'}`}
             />
           ))}
@@ -128,9 +134,9 @@ const Portfolio: React.FC = () => {
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <FadeInSection>
           <div className="text-center mb-16">
-            <span className="inline-block text-brand-red font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-red/5 rounded-full">Proven Excellence</span>
+            <span className="inline-block text-red-700 font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-red/5 rounded-full">Proven Excellence</span>
             <h1 className="text-5xl text-brand-navy mb-6">Our Transformations</h1>
-            <p className="text-brand-charcoal/50 max-w-2xl mx-auto text-lg mb-10">Real projects from homeowners across New Jersey. Every image is from our actual work.</p>
+            <p className="text-brand-charcoal/70 max-w-2xl mx-auto text-lg mb-10">Real projects from homeowners across New Jersey. Every image is from our actual work.</p>
             
             <div className="flex justify-center gap-2 flex-wrap">
               {categories.map(cat => (
@@ -140,10 +146,10 @@ const Portfolio: React.FC = () => {
                   className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
                     filter === cat
                       ? 'bg-brand-navy text-white shadow-md shadow-brand-navy/20'
-                      : 'bg-white text-brand-charcoal/50 hover:text-brand-navy border border-brand-navy/5'
+                      : 'bg-white text-brand-charcoal/70 hover:text-brand-navy border border-brand-navy/5'
                   }`}
                 >
-                  {cat} {cat !== 'All' && <span className="text-xs opacity-60">({PROJECTS.filter(p => cat === 'All' || p.category === cat).length})</span>}
+                  {cat} {cat !== 'All' && <span className="text-xs">({PROJECTS.filter(p => cat === 'All' || p.category === cat).length})</span>}
                 </button>
               ))}
             </div>
@@ -158,11 +164,12 @@ const Portfolio: React.FC = () => {
                 onClick={() => setActiveProject(project)}
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
-                  <img 
-                    src={thumb(project.afterImages[0])} 
-                    alt={project.title} 
+                  <img
+                    {...imageAttrs(project.afterImages[0], CARD_SIZES)}
+                    alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                     loading="lazy"
+                    decoding="async"
                   />
                   <div className="absolute top-5 left-5 flex gap-2">
                     <span className="bg-white/90 backdrop-blur-md text-brand-navy text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full shadow-sm">
@@ -187,14 +194,14 @@ const Portfolio: React.FC = () => {
                 </div>
                 
                 <div className="p-7 flex-1 flex flex-col">
-                  <h3 className="text-lg font-extrabold mb-2 text-brand-navy group-hover:text-brand-gold transition-colors duration-300">{project.title}</h3>
-                  <p className="text-brand-charcoal/50 text-sm mb-5 leading-relaxed line-clamp-2">{project.description}</p>
+                  <h2 className="text-lg font-extrabold mb-2 text-brand-navy group-hover:text-brand-gold transition-colors duration-300">{project.title}</h2>
+                  <p className="text-brand-charcoal/70 text-sm mb-5 leading-relaxed line-clamp-2">{project.description}</p>
                   
                   <div className="mt-auto pt-5 border-t border-brand-navy/5 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-[8px] font-bold text-brand-red">B</div>
-                      <div className="w-6 h-6 rounded-full bg-brand-cyan/10 flex items-center justify-center text-[8px] font-bold text-brand-cyan">A</div>
-                      <span className="text-[10px] font-bold text-brand-charcoal/30 uppercase tracking-wider ml-1">Before / After</span>
+                      <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-[8px] font-bold text-red-700" aria-hidden="true">B</div>
+                      <div className="w-6 h-6 rounded-full bg-brand-cyan/10 flex items-center justify-center text-[8px] font-bold text-brand-cyan" aria-hidden="true">A</div>
+                      <span className="text-[10px] font-bold text-brand-charcoal/70 uppercase tracking-wider ml-1">Before / After</span>
                     </div>
                     <span className="text-[11px] font-bold text-brand-navy group-hover:text-brand-gold transition-colors flex items-center gap-1">
                       Details <MoveRight size={12} />
@@ -217,9 +224,10 @@ const Portfolio: React.FC = () => {
             <div className="sticky top-0 z-50 flex justify-end p-5">
               <button 
                 onClick={() => setActiveProject(null)}
+                aria-label="Close project details"
                 className="p-3 bg-brand-navy/5 hover:bg-brand-red hover:text-white text-brand-navy rounded-full transition-all duration-300"
               >
-                <X size={20} />
+                <X size={20} aria-hidden="true" />
               </button>
             </div>
             
@@ -227,11 +235,11 @@ const Portfolio: React.FC = () => {
               <div className="mb-10">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="inline-block text-brand-gold font-bold text-xs tracking-[0.3em] uppercase px-3 py-1 bg-brand-gold/5 rounded-full">{activeProject.category}</span>
-                  <span className="text-brand-charcoal/30 text-xs font-semibold flex items-center gap-1"><MapPin size={11} /> {activeProject.location}</span>
+                  <span className="text-brand-charcoal/70 text-xs font-semibold flex items-center gap-1"><MapPin size={11} /> {activeProject.location}</span>
                 </div>
                 <h2 className="text-4xl lg:text-5xl text-brand-navy mb-4">{activeProject.title}</h2>
-                <p className="text-brand-charcoal/50 text-lg max-w-3xl leading-relaxed">{activeProject.description}</p>
-                <p className="text-brand-charcoal/30 text-xs mt-3 italic">Tap any photo to view full size</p>
+                <p className="text-brand-charcoal/70 text-lg max-w-3xl leading-relaxed">{activeProject.description}</p>
+                <p className="text-brand-charcoal/70 text-xs mt-3 italic">Tap any photo to view full size</p>
               </div>
 
               <div className="grid grid-cols-2 gap-4 mb-12">
@@ -241,11 +249,12 @@ const Portfolio: React.FC = () => {
                       className="relative rounded-2xl overflow-hidden border border-brand-navy/5 aspect-[9/16] cursor-pointer"
                       onClick={(e) => { e.stopPropagation(); openLightbox(getAllProjectImages(activeProject), i); }}
                     >
-                      <img 
-                        src={thumb(img)} 
-                        alt={`Before ${i + 1}`} 
+                      <img
+                        {...imageAttrs(img, '(min-width: 1024px) 440px, 45vw')}
+                        alt={`Before ${i + 1}`}
                         className="w-full h-full object-cover bg-slate-50 transition-transform duration-300 group-hover:scale-105"
                         loading="lazy"
+                        decoding="async"
                       />
                       <span className="absolute top-3 left-3 bg-brand-red/90 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">Before</span>
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
@@ -267,11 +276,12 @@ const Portfolio: React.FC = () => {
                         className={`relative ${activeProject.category === 'Kitchen' ? 'aspect-[16/9]' : 'aspect-[9/16]'} rounded-2xl overflow-hidden shadow-lg shadow-brand-navy/10 border border-brand-cyan/10 cursor-pointer`}
                         onClick={(e) => { e.stopPropagation(); openLightbox(getAllProjectImages(activeProject), beforeCount + i); }}
                       >
-                        <img 
-                          src={thumb(img)} 
-                          alt={`After ${i + 1}`} 
+                        <img
+                          {...imageAttrs(img, '(min-width: 1024px) 900px, 90vw')}
+                          alt={`After ${i + 1}`}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                           loading="lazy"
+                          decoding="async"
                         />
                         <span className="absolute top-3 left-3 bg-brand-cyan/90 text-white text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-wider shadow-sm">After</span>
                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
@@ -287,9 +297,9 @@ const Portfolio: React.FC = () => {
 
               {activeProject.videoUrl && (
                 <div className="mb-12">
-                  <h4 className="text-xs font-bold text-brand-charcoal/30 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
-                    <Play size={14} className="text-brand-gold" /> Project Video Walkthrough
-                  </h4>
+                  <h3 className="font-sans text-xs font-bold text-brand-charcoal/70 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                    <Play size={14} className="text-brand-gold" aria-hidden="true" /> Project Video Walkthrough
+                  </h3>
                   <div className="rounded-2xl overflow-hidden border border-brand-navy/5 shadow-lg bg-black">
                     <video
                       controls
@@ -297,7 +307,7 @@ const Portfolio: React.FC = () => {
                       webkit-playsinline="true"
                       preload="auto"
                       className="w-full h-auto max-h-[500px] mx-auto"
-                      poster={thumb(activeProject.afterImages[0])}
+                      poster={cardImage(activeProject.afterImages[0])}
                     >
                       <source src={activeProject.videoUrl} type="video/mp4" />
                       Your browser does not support video playback.
@@ -314,8 +324,8 @@ const Portfolio: React.FC = () => {
                     "{activeProject.testimonial.text}"
                   </p>
                   <div className="w-8 h-0.5 bg-brand-gold mx-auto mb-4"></div>
-                  <p className="font-extrabold text-brand-gold text-sm uppercase tracking-wider">{activeProject.testimonial.author}</p>
-                  <p className="text-brand-cyan/60 text-xs font-semibold mt-1 tracking-wider">{activeProject.testimonial.location}</p>
+                  <p className="font-extrabold text-brand-gold-light text-sm uppercase tracking-wider">{activeProject.testimonial.author}</p>
+                  <p className="text-white/70 text-xs font-semibold mt-1 tracking-wider">{activeProject.testimonial.location}</p>
                 </div>
               </div>
             </div>

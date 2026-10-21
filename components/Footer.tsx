@@ -6,6 +6,7 @@ import { SERVICE_AREA_TOWNS } from '../data/business';
 import { TOWNS } from '../data/towns';
 import { townPath } from '../routes';
 import { inApp } from './inApp';
+import { imageAttrs } from '../data/images';
 
 interface FooterProps {
   setSection: (section: Section) => void;
@@ -20,7 +21,7 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 mb-12">
 
           <div className="lg:col-span-5">
-            <p className="text-brand-charcoal/60 max-w-md mb-8 leading-relaxed text-sm sm:text-base">
+            <p className="text-brand-charcoal/70 max-w-md mb-8 leading-relaxed text-sm sm:text-base">
               Stuhl Services LLC is a licensed, insured, and bonded premium home remodeling company based in Gillette, NJ, serving Morris, Somerset, Union, and Essex Counties, including Long Hill, Gillette, Stirling, Millington, Berkeley Heights, New Providence, Summit, Warren, Watchung, Basking Ridge, Bernardsville, Chatham, Madison, Morristown, Mountainside, Millburn, and Westfield. We specialize in bathroom remodeling, basement finishing, kitchens, flooring, carpentry, and handyman work. With over 100 satisfied clients, we're built on trust, quality craftsmanship, and exceptional references.
             </p>
 
@@ -36,13 +37,13 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
             </div>
 
             <div className="flex items-center justify-center gap-4">
-              <a href="https://www.facebook.com/stuhlservicesLLC" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center border border-brand-navy/10 rounded-xl text-brand-navy/40 hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all duration-300">
-                <Facebook size={18} />
+              <a href="https://www.facebook.com/stuhlservicesLLC" target="_blank" rel="noopener noreferrer" aria-label="Stuhl Services on Facebook" className="w-11 h-11 flex items-center justify-center border border-brand-navy/10 rounded-xl text-brand-navy/70 hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all duration-300">
+                <Facebook size={18} aria-hidden="true" />
               </a>
-              <a href="https://www.instagram.com/stuhl_services" target="_blank" rel="noopener noreferrer" className="w-11 h-11 flex items-center justify-center border border-brand-navy/10 rounded-xl text-brand-navy/40 hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all duration-300">
-                <Instagram size={18} />
+              <a href="https://www.instagram.com/stuhl_services" target="_blank" rel="noopener noreferrer" aria-label="Stuhl Services on Instagram" className="w-11 h-11 flex items-center justify-center border border-brand-navy/10 rounded-xl text-brand-navy/70 hover:bg-brand-gold hover:text-white hover:border-brand-gold transition-all duration-300">
+                <Instagram size={18} aria-hidden="true" />
               </a>
-              <span className="text-brand-charcoal/40 text-xs ml-1">See our latest transformations</span>
+              <span className="text-brand-charcoal/70 text-xs ml-1">See our latest transformations</span>
             </div>
           </div>
 
@@ -53,10 +54,10 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
               
               <div className="relative z-10">
                 <div className="flex items-center gap-2 mb-3">
-                  <MapPin size={18} className="text-brand-gold" />
-                  <h4 className="font-extrabold text-white text-sm uppercase tracking-wider">Where We Work</h4>
+                  <MapPin size={18} className="text-brand-gold-light" aria-hidden="true" />
+                  <h2 className="font-sans font-extrabold text-white text-sm uppercase tracking-wider">Where We Work</h2>
                 </div>
-                <p className="text-white/40 text-xs mb-5">From Summit to Watchung, we're the family-owned team your neighbors trust.</p>
+                <p className="text-white/70 text-xs mb-5">From Summit to Watchung, we're the family-owned team your neighbors trust.</p>
 
                 <div className="grid grid-cols-2 gap-x-6 gap-y-2.5 mb-6">
                   {SERVICE_AREA_TOWNS.map((town) => (
@@ -68,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
                 </div>
 
                 <div className="pt-4 border-t border-white/10">
-                  <p className="text-white/30 text-xs">Serving Morris, Somerset, Union, and Essex Counties, NJ</p>
+                  <p className="text-white/70 text-xs">Serving Morris, Somerset, Union, and Essex Counties, NJ</p>
                 </div>
               </div>
             </div>
@@ -76,9 +77,11 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
         </div>
         
         <div className="relative mb-8 rounded-2xl overflow-hidden">
-          <img 
-            src="/images/owner.jpg" 
-            alt="Owner of Stuhl Services" 
+          <img
+            {...imageAttrs('/images/owner.jpg')}
+            alt="Owner of Stuhl Services"
+            loading="lazy"
+            decoding="async"
             className="w-full h-auto object-cover"
           />
           <div className="absolute top-3 left-3 sm:top-6 sm:left-6">
@@ -90,14 +93,14 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
         </div>
 
         <nav aria-label="Areas we serve" className="mb-8">
-          <h4 className="font-extrabold text-brand-navy text-xs uppercase tracking-wider mb-3">Areas We Serve</h4>
+          <h2 className="font-sans font-extrabold text-brand-navy text-xs uppercase tracking-wider mb-3">Areas We Serve</h2>
           <ul className="flex flex-wrap gap-x-5 gap-y-2 text-xs">
             {TOWNS.map((town) => (
               <li key={town.slug}>
                 <a
                   href={townPath(town.slug)}
                   onClick={inApp(() => onTownClick(town.slug))}
-                  className="text-brand-charcoal/50 hover:text-brand-gold transition-colors"
+                  className="text-brand-charcoal/70 hover:text-brand-gold transition-colors"
                 >
                   {town.label ?? town.name}
                 </a>
@@ -106,7 +109,7 @@ const Footer: React.FC<FooterProps> = ({ setSection, onTownClick }) => {
           </ul>
         </nav>
 
-        <div className="flex flex-col md:flex-row justify-between items-center text-brand-charcoal/30 text-xs pt-8 border-t border-brand-navy/10">
+        <div className="flex flex-col md:flex-row justify-between items-center text-brand-charcoal/70 text-xs pt-8 border-t border-brand-navy/10">
           <p>&copy; 2021 Stuhl Services LLC. All rights reserved.</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <a

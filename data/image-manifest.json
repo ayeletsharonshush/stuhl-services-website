@@ -1,0 +1,445 @@
+{
+  "/images/bath-millington-after1.png": [
+    {
+      "src": "/images/bath-millington-after1-800.5d8d00f8.webp",
+      "width": 800,
+      "height": 1077
+    },
+    {
+      "src": "/images/bath-millington-after1-1394.5d8d00f8.webp",
+      "width": 1394,
+      "height": 1876
+    }
+  ],
+  "/images/bath-millington-after2.png": [
+    {
+      "src": "/images/bath-millington-after2-600.7a953a22.webp",
+      "width": 600,
+      "height": 800
+    }
+  ],
+  "/images/bath-millington-after3.png": [
+    {
+      "src": "/images/bath-millington-after3-800.665103d8.webp",
+      "width": 800,
+      "height": 600
+    }
+  ],
+  "/images/bath-millington-before.png": [
+    {
+      "src": "/images/bath-millington-before-800.c35b3b31.webp",
+      "width": 800,
+      "height": 1750
+    }
+  ],
+  "/images/bath-millington-before2.png": [
+    {
+      "src": "/images/bath-millington-before2-800.f2d6823b.webp",
+      "width": 800,
+      "height": 1078
+    },
+    {
+      "src": "/images/bath-millington-before2-1394.f2d6823b.webp",
+      "width": 1394,
+      "height": 1878
+    }
+  ],
+  "/images/bath-millington-thumb.jpg": [
+    {
+      "src": "/images/bath-millington-thumb-800.122c58e0.webp",
+      "width": 800,
+      "height": 800
+    }
+  ],
+  "/images/bath-newprov-after1.png": [
+    {
+      "src": "/images/bath-newprov-after1-800.84800b71.webp",
+      "width": 800,
+      "height": 1071
+    },
+    {
+      "src": "/images/bath-newprov-after1-1406.84800b71.webp",
+      "width": 1406,
+      "height": 1882
+    }
+  ],
+  "/images/bath-newprov-after2.png": [
+    {
+      "src": "/images/bath-newprov-after2-800.d7856eb3.webp",
+      "width": 800,
+      "height": 1076
+    },
+    {
+      "src": "/images/bath-newprov-after2-1404.d7856eb3.webp",
+      "width": 1404,
+      "height": 1888
+    }
+  ],
+  "/images/bath-newprov-after3.png": [
+    {
+      "src": "/images/bath-newprov-after3-800.2109f662.webp",
+      "width": 800,
+      "height": 543
+    }
+  ],
+  "/images/bath-newprov-after4.png": [
+    {
+      "src": "/images/bath-newprov-after4-800.a508c851.webp",
+      "width": 800,
+      "height": 543
+    }
+  ],
+  "/images/bath-newprov-before.png": [
+    {
+      "src": "/images/bath-newprov-before-400.44ccaf6c.webp",
+      "width": 400,
+      "height": 880
+    }
+  ],
+  "/images/bath-newprov-before2.png": [
+    {
+      "src": "/images/bath-newprov-before2-400.e10509f4.webp",
+      "width": 400,
+      "height": 880
+    }
+  ],
+  "/images/bath-watchung-after2.png": [
+    {
+      "src": "/images/bath-watchung-after2-800.7c70986d.webp",
+      "width": 800,
+      "height": 1078
+    },
+    {
+      "src": "/images/bath-watchung-after2-1398.7c70986d.webp",
+      "width": 1398,
+      "height": 1884
+    }
+  ],
+  "/images/bath-watchung-after3.png": [
+    {
+      "src": "/images/bath-watchung-after3-600.2e6aae4e.webp",
+      "width": 600,
+      "height": 812
+    }
+  ],
+  "/images/bath-watchung-after4.png": [
+    {
+      "src": "/images/bath-watchung-after4-600.db2711ca.webp",
+      "width": 600,
+      "height": 812
+    }
+  ],
+  "/images/bath-watchung-before.png": [
+    {
+      "src": "/images/bath-watchung-before-400.dc71bf8d.webp",
+      "width": 400,
+      "height": 880
+    }
+  ],
+  "/images/bath-watchung-before2.png": [
+    {
+      "src": "/images/bath-watchung-before2-400.a94acdd9.webp",
+      "width": 400,
+      "height": 804
+    }
+  ],
+  "/images/bath-watchung-thumb.jpg": [
+    {
+      "src": "/images/bath-watchung-thumb-800.b75467d2.webp",
+      "width": 800,
+      "height": 800
+    }
+  ],
+  "/images/bath-westfield-hero.jpg": [
+    {
+      "src": "/images/bath-westfield-hero-800.acb3fca2.webp",
+      "width": 800,
+      "height": 1061
+    },
+    {
+      "src": "/images/bath-westfield-hero-1206.acb3fca2.webp",
+      "width": 1206,
+      "height": 1600
+    }
+  ],
+  "/images/bsmt-berkeley-after1.png": [
+    {
+      "src": "/images/bsmt-berkeley-after1-800.95c87bb8.webp",
+      "width": 800,
+      "height": 1432
+    },
+    {
+      "src": "/images/bsmt-berkeley-after1-1046.95c87bb8.webp",
+      "width": 1046,
+      "height": 1872
+    }
+  ],
+  "/images/bsmt-berkeley-after2.png": [
+    {
+      "src": "/images/bsmt-berkeley-after2-800.1bb56cd1.webp",
+      "width": 800,
+      "height": 1758
+    }
+  ],
+  "/images/bsmt-berkeley-after3.png": [
+    {
+      "src": "/images/bsmt-berkeley-after3-800.4e0f3a9a.webp",
+      "width": 800,
+      "height": 842
+    },
+    {
+      "src": "/images/bsmt-berkeley-after3-1600.4e0f3a9a.webp",
+      "width": 1600,
+      "height": 1685
+    }
+  ],
+  "/images/bsmt-berkeley-before.png": [
+    {
+      "src": "/images/bsmt-berkeley-before-496.98548ee8.webp",
+      "width": 496,
+      "height": 1058
+    }
+  ],
+  "/images/bsmt-berkeley-before2.png": [
+    {
+      "src": "/images/bsmt-berkeley-before2-800.46ca0f8e.webp",
+      "width": 800,
+      "height": 1187
+    },
+    {
+      "src": "/images/bsmt-berkeley-before2-1258.46ca0f8e.webp",
+      "width": 1258,
+      "height": 1866
+    }
+  ],
+  "/images/bsmt-berkeley-thumb.png": [
+    {
+      "src": "/images/bsmt-berkeley-thumb-800.c95e7267.webp",
+      "width": 800,
+      "height": 800
+    }
+  ],
+  "/images/bsmt-newprov-after3.png": [
+    {
+      "src": "/images/bsmt-newprov-after3-800.5e79c5a3.webp",
+      "width": 800,
+      "height": 594
+    }
+  ],
+  "/images/bsmt-newprov-before.png": [
+    {
+      "src": "/images/bsmt-newprov-before-800.f1d189f3.webp",
+      "width": 800,
+      "height": 1170
+    }
+  ],
+  "/images/bsmt-newprov-before2.png": [
+    {
+      "src": "/images/bsmt-newprov-before2-800.484932fe.webp",
+      "width": 800,
+      "height": 1748
+    }
+  ],
+  "/images/bsmt-newprov-before3.png": [
+    {
+      "src": "/images/bsmt-newprov-before3-800.37d0651f.webp",
+      "width": 800,
+      "height": 1758
+    }
+  ],
+  "/images/bsmt-newprov-thumb.png": [
+    {
+      "src": "/images/bsmt-newprov-thumb-800.fe7ccaba.webp",
+      "width": 800,
+      "height": 800
+    }
+  ],
+  "/images/bsmt-warren-after2.png": [
+    {
+      "src": "/images/bsmt-warren-after2-600.7d2f0c51.webp",
+      "width": 600,
+      "height": 554
+    }
+  ],
+  "/images/bsmt-warren-after3.png": [
+    {
+      "src": "/images/bsmt-warren-after3-600.cc86d943.webp",
+      "width": 600,
+      "height": 447
+    }
+  ],
+  "/images/bsmt-warren-before.png": [
+    {
+      "src": "/images/bsmt-warren-before-300.6210b48f.webp",
+      "width": 300,
+      "height": 600
+    }
+  ],
+  "/images/bsmt-warren-thumb.png": [
+    {
+      "src": "/images/bsmt-warren-thumb-600.0fc69d97.webp",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "/images/click-icon.png": [
+    {
+      "src": "/images/click-icon-128.368aa242.webp",
+      "width": 128,
+      "height": 139
+    }
+  ],
+  "/images/hero-main.jpg": [
+    {
+      "src": "/images/hero-main-800.38906162.webp",
+      "width": 800,
+      "height": 1067
+    },
+    {
+      "src": "/images/hero-main-1600.38906162.webp",
+      "width": 1600,
+      "height": 2133
+    }
+  ],
+  "/images/kitchen-gillette-after2.png": [
+    {
+      "src": "/images/kitchen-gillette-after2-600.168ba0db.webp",
+      "width": 600,
+      "height": 456
+    }
+  ],
+  "/images/kitchen-gillette-after3.png": [
+    {
+      "src": "/images/kitchen-gillette-after3-600.92bcb103.webp",
+      "width": 600,
+      "height": 450
+    }
+  ],
+  "/images/kitchen-gillette-after4.png": [
+    {
+      "src": "/images/kitchen-gillette-after4-600.df5ef307.webp",
+      "width": 600,
+      "height": 537
+    }
+  ],
+  "/images/kitchen-gillette-before.png": [
+    {
+      "src": "/images/kitchen-gillette-before-509.cdfcdd5b.webp",
+      "width": 509,
+      "height": 600
+    }
+  ],
+  "/images/kitchen-gillette-before2.png": [
+    {
+      "src": "/images/kitchen-gillette-before2-600.084d2aed.webp",
+      "width": 600,
+      "height": 569
+    }
+  ],
+  "/images/kitchen-gillette-thumb.png": [
+    {
+      "src": "/images/kitchen-gillette-thumb-442.7eaedbbb.webp",
+      "width": 442,
+      "height": 600
+    }
+  ],
+  "/images/kitchen-millburn-hero.jpg": [
+    {
+      "src": "/images/kitchen-millburn-hero-800.e050e2cb.webp",
+      "width": 800,
+      "height": 1061
+    },
+    {
+      "src": "/images/kitchen-millburn-hero-1166.e050e2cb.webp",
+      "width": 1166,
+      "height": 1547
+    }
+  ],
+  "/images/kitchen-warren-after1.png": [
+    {
+      "src": "/images/kitchen-warren-after1-521.8fda6817.webp",
+      "width": 521,
+      "height": 600
+    }
+  ],
+  "/images/kitchen-warren-before.png": [
+    {
+      "src": "/images/kitchen-warren-before-426.2ec85597.webp",
+      "width": 426,
+      "height": 600
+    }
+  ],
+  "/images/kitchen-warren-before2.png": [
+    {
+      "src": "/images/kitchen-warren-before2-428.bb638fe7.webp",
+      "width": 428,
+      "height": 600
+    }
+  ],
+  "/images/kitchen-warren-thumb.png": [
+    {
+      "src": "/images/kitchen-warren-thumb-600.cb0b5792.webp",
+      "width": 600,
+      "height": 600
+    }
+  ],
+  "/images/logo.png": [
+    {
+      "src": "/images/logo-160.ffbd310b.webp",
+      "width": 160,
+      "height": 258
+    },
+    {
+      "src": "/images/logo-512.ffbd310b.webp",
+      "width": 512,
+      "height": 824
+    }
+  ],
+  "/images/owner.jpg": [
+    {
+      "src": "/images/owner-800.191ba894.webp",
+      "width": 800,
+      "height": 600
+    }
+  ],
+  "/images/sunroom-berkeley-heights-hero.jpg": [
+    {
+      "src": "/images/sunroom-berkeley-heights-hero-800.c15ee648.webp",
+      "width": 800,
+      "height": 599
+    },
+    {
+      "src": "/images/sunroom-berkeley-heights-hero-1600.c15ee648.webp",
+      "width": 1600,
+      "height": 1198
+    }
+  ],
+  "/products/dryer-vent-kit.png": [
+    {
+      "src": "/products/dryer-vent-kit-800.ebf1c178.webp",
+      "width": 800,
+      "height": 800
+    }
+  ],
+  "/products/fan-fv0511vfc1.png": [
+    {
+      "src": "/products/fan-fv0511vfc1-800.ae6fc95f.webp",
+      "width": 800,
+      "height": 580
+    }
+  ],
+  "/products/leak-alarm-5pack.png": [
+    {
+      "src": "/products/leak-alarm-5pack-800.0d8423f5.webp",
+      "width": 800,
+      "height": 771
+    }
+  ],
+  "/products/showershroom.png": [
+    {
+      "src": "/products/showershroom-544.b829cb2b.webp",
+      "width": 544,
+      "height": 720
+    }
+  ]
+}

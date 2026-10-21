@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { RECOMMEND_SECTIONS, AFFILIATE_DISCLOSURE } from '../data/recommendations';
 import { RecommendedProduct, RecommendSection } from '../types';
+import { imageAttrs } from '../data/images';
 
 // Card width drives both the flex-basis of a card and how far an arrow click
 // scrolls. Kept in one place so the two can't drift apart.
@@ -18,10 +19,11 @@ const ProductCard: React.FC<{ product: RecommendedProduct }> = ({ product }) => 
     {product.image && (
       <div className="h-36 sm:h-40 bg-white border-b border-brand-navy/5 flex items-center justify-center p-4">
         <img
-          src={product.image}
+          {...imageAttrs(product.image, '(min-width: 640px) 288px, 80vw')}
           alt={product.name}
           loading="lazy"
-          className="max-h-full max-w-full object-contain"
+          decoding="async"
+          className="max-h-full max-w-full w-auto h-auto object-contain"
         />
       </div>
     )}
@@ -134,7 +136,7 @@ const Recommends: React.FC = () => {
             are Amazon affiliate links; if you buy through them it costs you nothing extra and
             supports the free videos I make.
           </p>
-          <p className="mt-2 text-xs text-brand-charcoal/50">{AFFILIATE_DISCLOSURE}</p>
+          <p className="mt-2 text-xs text-brand-charcoal/70">{AFFILIATE_DISCLOSURE}</p>
         </header>
 
         {/* Room sections */}

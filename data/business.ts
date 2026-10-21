@@ -1,6 +1,8 @@
 // Business facts shared by the page content and the JSON-LD that
 // scripts/prerender.mjs writes into every page's <head>.
 
+import { largestImage } from './images';
+
 export const SITE_URL = 'https://stuhlservices.com';
 export const PHONE_DISPLAY = '908-723-5922';
 export const PHONE_HREF = 'tel:9087235922';
@@ -78,7 +80,7 @@ export const businessJsonLd = (areaServed?: string[]) => ({
   priceRange: '$$$',
   email: 'stuhlservices@gmail.com',
   image: `${SITE_URL}/images/og-image.png`,
-  logo: `${SITE_URL}/images/logo.png`,
+  logo: `${SITE_URL}${largestImage('/images/logo.png')}`,
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Gillette',

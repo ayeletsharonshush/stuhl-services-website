@@ -4,6 +4,7 @@ import { Town } from '../data/towns';
 import { PROJECTS } from '../constants';
 import { SERVICES_OFFERED, ServiceIcon, PHONE_DISPLAY, PHONE_HREF, LICENSE_NUMBER } from '../data/business';
 import { inApp } from './inApp';
+import { imageAttrs, TOWN_HERO_SIZES } from '../data/images';
 
 interface TownPageProps {
   town: Town;
@@ -51,7 +52,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                 Home Remodeling in {town.name}, NJ
               </h1>
               {town.intro.map((paragraph, i) => (
-                <p key={i} className="text-lg text-brand-charcoal/60 mb-5 leading-relaxed">
+                <p key={i} className="text-lg text-brand-charcoal/70 mb-5 leading-relaxed">
                   {paragraph}
                 </p>
               ))}
@@ -77,8 +78,9 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
               <div className="lg:col-span-2 mt-14 lg:mt-0 relative">
                 <figure className="rounded-3xl overflow-hidden shadow-2xl shadow-brand-navy/15">
                   <img
-                    src={heroPhoto.src}
+                    {...imageAttrs(heroPhoto.src, TOWN_HERO_SIZES)}
                     alt={heroPhoto.alt}
+                    fetchPriority="high"
                     className="w-full h-[420px] lg:h-[520px] object-cover"
                   />
                 </figure>
@@ -89,7 +91,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                     </div>
                     <div>
                       <p className="font-extrabold text-brand-navy text-sm">Licensed, Insured &amp; Bonded</p>
-                      <p className="text-[10px] font-bold text-brand-charcoal/40 uppercase tracking-wider">NJ HIC #{LICENSE_NUMBER}</p>
+                      <p className="text-[10px] font-bold text-brand-charcoal/70 uppercase tracking-wider">NJ HIC #{LICENSE_NUMBER}</p>
                     </div>
                   </div>
                 </div>
@@ -116,7 +118,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                   </div>
                   <div>
                     <h3 className="text-base font-extrabold mb-1 text-brand-navy">{service.title}</h3>
-                    <p className="text-brand-charcoal/50 text-sm leading-relaxed">{service.description}</p>
+                    <p className="text-brand-charcoal/70 text-sm leading-relaxed">{service.description}</p>
                   </div>
                 </li>
               );
@@ -130,7 +132,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
           <div className="text-center mb-10 lg:mb-16">
             <span className="inline-block text-brand-cyan font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-cyan/5 rounded-full">Our Work</span>
             <h2 className="text-4xl lg:text-5xl text-brand-navy mb-4">Recent Projects Near {town.name}</h2>
-            <p className="text-brand-charcoal/50 max-w-xl mx-auto">
+            <p className="text-brand-charcoal/70 max-w-xl mx-auto">
               Real photos from our own jobs.{' '}
               <a href="/portfolio" onClick={inApp(onPortfolioClick)} className="text-brand-gold font-semibold hover:underline">
                 See the full portfolio
@@ -142,15 +144,16 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
             {morePhotos.map((photo) => (
               <figure key={photo.src} className="bg-white rounded-3xl overflow-hidden shadow-sm border border-brand-navy/5">
                 <img
-                  src={photo.src}
+                  {...imageAttrs(photo.src, '(min-width: 768px) 33vw, 100vw')}
                   alt={photo.alt}
                   loading="lazy"
-                  className="w-full aspect-[4/3] object-cover"
+                  decoding="async"
+                  className="w-full h-auto aspect-[4/3] object-cover"
                 />
                 {photo.caption && (
                   <figcaption className="px-5 py-4">
                     <span className="block text-sm font-extrabold text-brand-navy">{photo.caption.title}</span>
-                    <span className="block text-xs text-brand-charcoal/40 font-semibold mt-0.5">{photo.caption.location}</span>
+                    <span className="block text-xs text-brand-charcoal/70 font-semibold mt-0.5">{photo.caption.location}</span>
                   </figcaption>
                 )}
               </figure>
@@ -163,7 +166,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                 </blockquote>
                 <figcaption className="mt-6">
                   <span className="block text-sm font-extrabold text-brand-navy">{testimonialProject.testimonial.author}</span>
-                  <span className="block text-xs text-brand-charcoal/40 font-semibold mt-0.5">{testimonialProject.title}</span>
+                  <span className="block text-xs text-brand-charcoal/70 font-semibold mt-0.5">{testimonialProject.title}</span>
                 </figcaption>
               </figure>
             )}
@@ -178,9 +181,9 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
             <div className="relative z-10 lg:grid lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6 leading-tight">
-                  Planning a project in <span className="text-brand-gold italic">{town.name}?</span>
+                  Planning a project in <span className="text-brand-gold-light italic">{town.name}?</span>
                 </h2>
-                <p className="text-white/50 text-base sm:text-lg leading-relaxed">
+                <p className="text-white/70 text-base sm:text-lg leading-relaxed">
                   Call for a free, no-obligation estimate. You talk to the owner, and every inquiry gets a callback within 24 hours.
                 </p>
               </div>
@@ -190,7 +193,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                     <Phone size={24} />
                   </div>
                   <div>
-                    <p className="text-[10px] text-white/40 font-bold uppercase tracking-wider">Call us</p>
+                    <p className="text-[10px] text-white/70 font-bold uppercase tracking-wider">Call us</p>
                     <p className="text-3xl sm:text-4xl font-extrabold tracking-tight">{PHONE_DISPLAY}</p>
                   </div>
                 </a>
@@ -201,8 +204,8 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                 >
                   Request a Free Estimate
                 </a>
-                <p className="mt-6 flex items-center gap-2 text-white/50 text-sm">
-                  <CheckCircle size={16} className="text-brand-gold shrink-0" />
+                <p className="mt-6 flex items-center gap-2 text-white/70 text-sm">
+                  <CheckCircle size={16} className="text-brand-gold-light shrink-0" aria-hidden="true" />
                   Licensed, insured, and bonded · NJ HIC #{LICENSE_NUMBER}
                 </p>
               </div>

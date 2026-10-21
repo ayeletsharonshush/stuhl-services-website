@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
             <div>
               <span className="inline-block text-brand-cyan font-bold uppercase tracking-[0.3em] text-xs mb-4 px-4 py-1.5 bg-brand-cyan/5 rounded-full">Get In Touch</span>
               <h1 className="text-4xl lg:text-5xl text-brand-navy mb-6 leading-tight">Elevate Your<br />Home Today.</h1>
-              <p className="text-brand-charcoal/50 mb-12 text-lg leading-relaxed">
+              <p className="text-brand-charcoal/70 mb-12 text-lg leading-relaxed">
                 Every project starts with a conversation. Share your vision with us for a zero-obligation consultation.
               </p>
 
@@ -82,9 +82,9 @@ const Contact: React.FC = () => {
                     <Phone size={20} />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-brand-navy text-sm mb-0.5">Direct Line</h4>
-                    <p className="text-brand-charcoal/60 font-semibold">(908) 723-5922</p>
-                    <p className="text-[10px] text-brand-charcoal/30 font-bold uppercase tracking-wider mt-0.5">Tap to call</p>
+                    <h2 className="font-sans font-extrabold text-brand-navy text-sm mb-0.5">Direct Line</h2>
+                    <p className="text-brand-charcoal/70 font-semibold">(908) 723-5922</p>
+                    <p className="text-[10px] text-brand-charcoal/70 font-bold uppercase tracking-wider mt-0.5">Tap to call</p>
                   </div>
                 </a>
 
@@ -93,9 +93,9 @@ const Contact: React.FC = () => {
                     <Mail size={20} />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-brand-navy text-sm mb-0.5">Email Inquiry</h4>
-                    <p className="text-brand-charcoal/60 font-semibold">stuhlservices@gmail.com</p>
-                    <p className="text-[10px] text-brand-charcoal/30 font-bold uppercase tracking-wider mt-0.5">Tap to email</p>
+                    <h2 className="font-sans font-extrabold text-brand-navy text-sm mb-0.5">Email Inquiry</h2>
+                    <p className="text-brand-charcoal/70 font-semibold">stuhlservices@gmail.com</p>
+                    <p className="text-[10px] text-brand-charcoal/70 font-bold uppercase tracking-wider mt-0.5">Tap to email</p>
                   </div>
                 </a>
 
@@ -104,8 +104,8 @@ const Contact: React.FC = () => {
                     <Clock size={20} />
                   </div>
                   <div>
-                    <h4 className="font-extrabold text-brand-navy text-sm mb-0.5">Priority Service</h4>
-                    <p className="text-brand-charcoal/60 font-semibold">24-Hour callback guaranteed.</p>
+                    <h2 className="font-sans font-extrabold text-brand-navy text-sm mb-0.5">Priority Service</h2>
+                    <p className="text-brand-charcoal/70 font-semibold">24-Hour callback guaranteed.</p>
                   </div>
                 </div>
               </div>
@@ -119,14 +119,14 @@ const Contact: React.FC = () => {
                   <CheckCircle className="text-green-600" size={32} />
                 </div>
                 <h3 className="text-2xl text-brand-navy mb-3">Inquiry Received!</h3>
-                <p className="text-brand-charcoal/50 text-lg">A project manager from Stuhl Services will contact you within 24 hours.</p>
+                <p className="text-brand-charcoal/70 text-lg">A project manager from Stuhl Services will contact you within 24 hours.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white p-8 lg:p-12 rounded-3xl shadow-xl shadow-brand-navy/5 border border-brand-navy/5">
                 <div className="grid sm:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-[11px] font-bold text-brand-charcoal/40 uppercase tracking-wider mb-2">Full Name</label>
-                    <input 
+                    <label className="block text-[11px] font-bold text-brand-charcoal/70 uppercase tracking-wider mb-2" htmlFor="contact-name">Full Name</label>
+                    <input id="contact-name" 
                       type="text" 
                       required
                       value={formState.name}
@@ -136,8 +136,8 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-brand-charcoal/40 uppercase tracking-wider mb-2">Email</label>
-                    <input 
+                    <label className="block text-[11px] font-bold text-brand-charcoal/70 uppercase tracking-wider mb-2" htmlFor="contact-email">Email</label>
+                    <input id="contact-email" 
                       type="email" 
                       required
                       value={formState.email}
@@ -150,8 +150,8 @@ const Contact: React.FC = () => {
 
                 <div className="grid sm:grid-cols-2 gap-6 mb-6">
                   <div>
-                    <label className="block text-[11px] font-bold text-brand-charcoal/40 uppercase tracking-wider mb-2">Phone (Optional)</label>
-                    <input 
+                    <label className="block text-[11px] font-bold text-brand-charcoal/70 uppercase tracking-wider mb-2" htmlFor="contact-phone">Phone (Optional)</label>
+                    <input id="contact-phone" 
                       type="tel" 
                       value={formState.phone}
                       onChange={(e) => setFormState({...formState, phone: e.target.value})}
@@ -160,8 +160,8 @@ const Contact: React.FC = () => {
                     />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-brand-charcoal/40 uppercase tracking-wider mb-2">Project Type</label>
-                    <select 
+                    <label className="block text-[11px] font-bold text-brand-charcoal/70 uppercase tracking-wider mb-2" htmlFor="contact-project-type">Project Type</label>
+                    <select id="contact-project-type" 
                       value={formState.projectType}
                       onChange={(e) => setFormState({...formState, projectType: e.target.value})}
                       className="w-full px-5 py-3.5 rounded-xl border border-brand-navy/10 bg-brand-cream/50 focus:bg-white focus:border-brand-gold focus:ring-2 focus:ring-brand-gold/10 outline-none transition-all font-semibold text-brand-navy appearance-none cursor-pointer"
@@ -175,8 +175,8 @@ const Contact: React.FC = () => {
                 </div>
 
                 <div className="mb-8">
-                  <label className="block text-[11px] font-bold text-brand-charcoal/40 uppercase tracking-wider mb-2">Project Details</label>
-                  <textarea 
+                  <label className="block text-[11px] font-bold text-brand-charcoal/70 uppercase tracking-wider mb-2" htmlFor="contact-details">Project Details</label>
+                  <textarea id="contact-details" 
                     rows={4}
                     required
                     value={formState.message}

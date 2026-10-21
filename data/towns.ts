@@ -77,7 +77,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-newprov',
     photos: [
-      { projectId: 'bath-newprov', src: '/images/bath-newprov-after1-web.jpg' },
+      { projectId: 'bath-newprov', src: '/images/bath-newprov-after1.png' },
       { projectId: 'bsmt-newprov', src: '/images/bsmt-newprov-after3.png' },
       { projectId: 'bath-newprov', src: '/images/bath-newprov-after4.png' },
     ],
@@ -215,7 +215,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-warren',
     photos: [
-      { projectId: 'bath-watchung', src: '/images/bath-watchung-after2-web.jpg' },
+      { projectId: 'bath-watchung', src: '/images/bath-watchung-after2.png' },
       { projectId: 'kitchen-warren', src: '/images/kitchen-warren-thumb.png' },
       { projectId: 'bsmt-warren', src: '/images/bsmt-warren-after3.png' },
     ],
@@ -259,7 +259,7 @@ export const TOWNS: Town[] = [
         alt: 'Bathroom remodel by Stuhl Services in Westfield, NJ',
         caption: { title: 'Bathroom Remodel', location: 'Westfield, NJ' },
       },
-      { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-after3-web.jpg' },
+      { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-after3.png' },
       { projectId: 'kitchen-gillette', src: '/images/kitchen-gillette-after4.png' },
     ],
   },
@@ -275,7 +275,7 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-newprov',
     photos: [
-      { projectId: 'bath-newprov', src: '/images/bath-newprov-after2-web.jpg' },
+      { projectId: 'bath-newprov', src: '/images/bath-newprov-after2.png' },
       { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-thumb.png' },
     ],
   },
