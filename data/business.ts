@@ -75,6 +75,7 @@ export const businessJsonLd = (areaServed?: string[]) => ({
     `NJ Home Improvement Contractor license ${LICENSE_NUMBER}.`,
   url: SITE_URL,
   telephone: '+1-908-723-5922',
+  priceRange: '$$$',
   email: 'stuhlservices@gmail.com',
   image: `${SITE_URL}/images/og-image.png`,
   logo: `${SITE_URL}/images/logo.png`,

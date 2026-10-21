@@ -18,13 +18,19 @@ const template = fs.readFileSync(path.join(dist, 'index.html'), 'utf8');
 const escapeAttr = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
 // Replace exactly one match, so a template change can't silently skip a tag.
+// A string replacement is inserted literally (no `$` patterns, so "$$$" stays "$$$").
 const replaceOnce = (html, pattern, replacement, what) => {
   const matches = html.match(new RegExp(pattern.source, 'g')) ?? [];
   if (matches.length !== 1) throw new Error(`expected one ${what} in dist/index.html, found ${matches.length}`);
-  return html.replace(pattern, replacement);
+  return html.replace(pattern, typeof replacement === 'function' ? replacement : () => replacement);
 };
 const setMeta = (html, attr, name, value) =>
-  replaceOnce(html, new RegExp(`(<meta ${attr}="${name}" content=")[^"]*(")`), `$1${escapeAttr(value)}$2`, `${name} meta`);
+  replaceOnce(
+    html,
+    new RegExp(`(<meta ${attr}="${name}" content=")[^"]*(")`),
+    (_, open, close) => `${open}${escapeAttr(value)}${close}`,
+    `${name} meta`,
+  );
 
 if (!template.includes(`<title>${DEFAULT_TITLE}</title>`)) {
   throw new Error('index.html <title> does not match DEFAULT_TITLE in head.ts');
