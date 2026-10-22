@@ -5,7 +5,5 @@
 [build.environment]
   NODE_VERSION = "20"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# No SPA catch-all: every real page is prerendered to its own .html file, so
+# anything else falls through to Netlify's default, public/404.html with a 404.
