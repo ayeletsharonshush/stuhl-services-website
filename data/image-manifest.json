@@ -143,13 +143,6 @@
       "height": 804
     }
   ],
-  "/images/bath-watchung-thumb.jpg": [
-    {
-      "src": "/images/bath-watchung-thumb-800.b75467d2.webp",
-      "width": 800,
-      "height": 800
-    }
-  ],
   "/images/bath-westfield-hero.jpg": [
     {
       "src": "/images/bath-westfield-hero-800.acb3fca2.webp",
@@ -402,14 +395,14 @@
       "height": 600
     }
   ],
-  "/images/sunroom-berkeley-heights-hero.jpg": [
+  "/images/sunroom-summit-hero.jpg": [
     {
-      "src": "/images/sunroom-berkeley-heights-hero-800.c15ee648.webp",
+      "src": "/images/sunroom-summit-hero-800.c15ee648.webp",
       "width": 800,
       "height": 599
     },
     {
-      "src": "/images/sunroom-berkeley-heights-hero-1600.c15ee648.webp",
+      "src": "/images/sunroom-summit-hero-1600.c15ee648.webp",
       "width": 1600,
       "height": 1198
     }

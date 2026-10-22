@@ -55,12 +55,8 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bsmt-berkeley',
     photos: [
-      {
-        src: '/images/sunroom-berkeley-heights-hero.jpg',
-        alt: 'Sunroom by Stuhl Services in Berkeley Heights, NJ',
-        caption: { title: 'Sunroom', location: 'Berkeley Heights, NJ' },
-      },
-      { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-thumb.png' },
+      { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-after1.png' },
+      { projectId: 'bsmt-berkeley', src: '/images/bsmt-berkeley-after3.png' },
       { projectId: 'bsmt-newprov', src: '/images/bsmt-newprov-after3.png' },
     ],
   },
@@ -95,7 +91,11 @@ export const TOWNS: Town[] = [
     ],
     testimonialFrom: 'bath-newprov',
     photos: [
-      { projectId: 'bath-watchung', src: '/images/bath-watchung-thumb.jpg' },
+      {
+        src: '/images/sunroom-summit-hero.jpg',
+        alt: 'Sunroom by Stuhl Services in Summit, NJ',
+        caption: { title: 'Sunroom', location: 'Summit, NJ' },
+      },
       { projectId: 'kitchen-gillette', src: '/images/kitchen-gillette-after3.png' },
       { projectId: 'bath-newprov', src: '/images/bath-newprov-after4.png' },
     ],
