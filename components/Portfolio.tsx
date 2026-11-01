@@ -107,7 +107,7 @@ const Portfolio: React.FC = () => {
   const [lightboxImages, setLightboxImages] = useState<string[] | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState(0);
 
-  const categories = ['All', 'Bathroom', 'Basement', 'Kitchen'];
+  const categories = ['All', 'Bathroom', 'Basement', 'Kitchen', 'Custom Work'];
   const filteredProjects = filter === 'All' ? PROJECTS : PROJECTS.filter(p => p.category === filter);
 
   const openLightbox = (images: string[], index: number) => {
@@ -124,10 +124,10 @@ const Portfolio: React.FC = () => {
     return () => { document.body.style.overflow = ''; };
   }, [activeProject, lightboxImages]);
 
-  const getAllProjectImages = (project: Project): string[] => {
-    const befores = project.beforeImages || [project.beforeImage];
-    return [...befores, ...project.afterImages];
-  };
+  const beforeImagesOf = (project: Project): string[] =>
+    project.beforeImages ?? (project.beforeImage ? [project.beforeImage] : []);
+
+  const getAllProjectImages = (project: Project): string[] => [...beforeImagesOf(project), ...project.afterImages];
 
   return (
     <div className="py-14 lg:py-28 bg-brand-cream">
@@ -163,11 +163,11 @@ const Portfolio: React.FC = () => {
                 className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 border border-brand-navy/5 flex flex-col group cursor-pointer hover:-translate-y-2"
                 onClick={() => setActiveProject(project)}
               >
-                <div className="relative aspect-[4/3] overflow-hidden">
+                <div className="relative aspect-[4/3] overflow-hidden" style={{ backgroundColor: project.thumbBackground }}>
                   <img
                     {...imageAttrs(project.afterImages[0], CARD_SIZES)}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className={`w-full h-full ${project.thumbBackground ? 'object-contain' : 'object-cover'} transition-transform duration-700 group-hover:scale-110`}
                     loading="lazy"
                     decoding="async"
                   />
@@ -198,11 +198,15 @@ const Portfolio: React.FC = () => {
                   <p className="text-brand-charcoal/70 text-sm mb-5 leading-relaxed line-clamp-2">{project.description}</p>
                   
                   <div className="mt-auto pt-5 border-t border-brand-navy/5 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-[8px] font-bold text-red-700" aria-hidden="true">B</div>
-                      <div className="w-6 h-6 rounded-full bg-brand-cyan/10 flex items-center justify-center text-[8px] font-bold text-brand-cyan" aria-hidden="true">A</div>
-                      <span className="text-[10px] font-bold text-brand-charcoal/70 uppercase tracking-wider ml-1">Before / After</span>
-                    </div>
+                    {beforeImagesOf(project).length > 0 ? (
+                      <div className="flex items-center gap-2">
+                        <div className="w-6 h-6 rounded-full bg-brand-red/10 flex items-center justify-center text-[8px] font-bold text-red-700" aria-hidden="true">B</div>
+                        <div className="w-6 h-6 rounded-full bg-brand-cyan/10 flex items-center justify-center text-[8px] font-bold text-brand-cyan" aria-hidden="true">A</div>
+                        <span className="text-[10px] font-bold text-brand-charcoal/70 uppercase tracking-wider ml-1">Before / After</span>
+                      </div>
+                    ) : (
+                      <span className="text-[10px] font-bold text-brand-charcoal/70 uppercase tracking-wider">Finished Result</span>
+                    )}
                     <span className="text-[11px] font-bold text-brand-navy group-hover:text-brand-gold transition-colors flex items-center gap-1">
                       Details <MoveRight size={12} />
                     </span>
@@ -242,8 +246,9 @@ const Portfolio: React.FC = () => {
                 <p className="text-brand-charcoal/70 text-xs mt-3 italic">Tap any photo to view full size</p>
               </div>
 
+              {beforeImagesOf(activeProject).length > 0 && (
               <div className="grid grid-cols-2 gap-4 mb-12">
-                {(activeProject.beforeImages || [activeProject.beforeImage]).map((img, i) => (
+                {beforeImagesOf(activeProject).map((img, i) => (
                   <div key={`before-${i}`} className="group">
                     <div
                       className="relative rounded-2xl overflow-hidden border border-brand-navy/5 aspect-[9/16] cursor-pointer"
@@ -266,14 +271,15 @@ const Portfolio: React.FC = () => {
                   </div>
                 ))}
               </div>
+              )}
 
               <div className="space-y-4 mb-12">
                 {activeProject.afterImages.map((img, i) => {
-                  const beforeCount = (activeProject.beforeImages || [activeProject.beforeImage]).length;
+                  const beforeCount = beforeImagesOf(activeProject).length;
                   return (
                     <div key={`after-${i}`} className="group">
                       <div
-                        className={`relative ${activeProject.category === 'Kitchen' ? 'aspect-[16/9]' : 'aspect-[9/16]'} rounded-2xl overflow-hidden shadow-lg shadow-brand-navy/10 border border-brand-cyan/10 cursor-pointer`}
+                        className={`relative ${activeProject.category === 'Kitchen' ? 'aspect-[16/9]' : activeProject.category === 'Custom Work' ? 'aspect-[3/4]' : 'aspect-[9/16]'} rounded-2xl overflow-hidden shadow-lg shadow-brand-navy/10 border border-brand-cyan/10 cursor-pointer`}
                         onClick={(e) => { e.stopPropagation(); openLightbox(getAllProjectImages(activeProject), beforeCount + i); }}
                       >
                         <img
@@ -316,6 +322,7 @@ const Portfolio: React.FC = () => {
                 </div>
               )}
 
+              {activeProject.testimonial && (
               <div className="bg-brand-navy rounded-3xl p-8 lg:p-14 relative overflow-hidden text-center">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl -mt-20"></div>
                 <Quote className="text-brand-gold/30 mx-auto mb-6" size={48} />
@@ -328,6 +335,7 @@ const Portfolio: React.FC = () => {
                   <p className="text-white/70 text-xs font-semibold mt-1 tracking-wider">{activeProject.testimonial.location}</p>
                 </div>
               </div>
+              )}
             </div>
           </div>
         </div>

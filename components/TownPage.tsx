@@ -158,7 +158,7 @@ const TownPage: React.FC<TownPageProps> = ({ town, onContactClick, onPortfolioCl
                 )}
               </figure>
             ))}
-            {testimonialProject && (
+            {testimonialProject?.testimonial && (
               <figure className={`bg-white rounded-3xl p-8 shadow-sm border border-brand-navy/5 flex flex-col ${morePhotos.length < 2 ? 'md:col-span-2' : ''}`}>
                 <Quote className="text-brand-gold mb-4" size={28} />
                 <blockquote className="text-brand-charcoal/70 leading-relaxed flex-grow">

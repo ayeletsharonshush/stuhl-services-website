@@ -170,6 +170,15 @@ export const PROJECTS: Project[] = [
       author: "Warren Homeowner",
       location: "Warren, NJ"
     }
+  },
+  {
+    id: 'custom-star-desk',
+    title: 'Star Corner Workstation Rebuild',
+    category: 'Custom Work',
+    location: 'East Hanover, NJ',
+    description: "This customer's corner workstation was started by another contractor, and it didn't come out the way they wanted. They asked if I could fix it, so I rebuilt it. I painted the room a deep green and built a solid wood star frame with mitered points that wraps across both walls of the corner. Inside the star: a floating butcher block desk and two floating wood shelves, with color-changing LED lights set inside the frame. The result is a one-of-a-kind workspace that the customer now loves.",
+    afterImages: ['/images/custom-star-desk-after1.jpg'],
+    thumbBackground: '#2D484A'
   }
 ];
 

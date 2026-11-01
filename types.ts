@@ -8,14 +8,18 @@ export interface Testimonial {
 export interface Project {
   id: string;
   title: string;
-  category: 'Bathroom' | 'Basement' | 'Kitchen' | 'Custom' | 'Storage';
+  category: 'Bathroom' | 'Basement' | 'Kitchen' | 'Custom Work' | 'Storage';
   location: string;
   description: string;
-  beforeImage: string;
+  // Projects without before photos show only the finished result.
+  beforeImage?: string;
   beforeImages?: string[];
   afterImages: string[];
+  // Shows the whole first photo on the card, letterboxed on this colour,
+  // instead of cropping it to the card's 4:3 frame.
+  thumbBackground?: string;
   videoUrl?: string;
-  testimonial: Testimonial;
+  testimonial?: Testimonial;
 }
 
 export enum Section {
