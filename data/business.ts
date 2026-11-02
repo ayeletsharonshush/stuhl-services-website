@@ -28,6 +28,7 @@ export const SERVICE_AREA_TOWNS = [
   'Mountainside',
   'Millburn',
   'Westfield',
+  'East Hanover',
 ];
 
 export type ServiceIcon = 'bath' | 'basement' | 'kitchen' | 'flooring' | 'carpentry' | 'handyman';
