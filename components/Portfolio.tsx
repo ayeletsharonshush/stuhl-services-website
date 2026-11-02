@@ -251,7 +251,7 @@ const Portfolio: React.FC = () => {
                 {beforeImagesOf(activeProject).map((img, i) => (
                   <div key={`before-${i}`} className="group">
                     <div
-                      className="relative rounded-2xl overflow-hidden border border-brand-navy/5 aspect-[9/16] cursor-pointer"
+                      className={`relative rounded-2xl overflow-hidden border border-brand-navy/5 ${activeProject.category === 'Custom Work' ? 'aspect-[3/4]' : 'aspect-[9/16]'} cursor-pointer`}
                       onClick={(e) => { e.stopPropagation(); openLightbox(getAllProjectImages(activeProject), i); }}
                     >
                       <img
